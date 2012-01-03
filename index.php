@@ -1,6 +1,13 @@
 <?php
     session_start();
-    print ("<?xml version='1.0' encoding='utf-8'?>\n");
+    print ("<?xml version='1.0' encoding='utf-8'?>".PHP_EOL);
+    $link = mysql_connect("localhost","iper","ipDBuse") or
+    exit("<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'
+    'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html><head><title>錯誤訊息</title><body>".
+      "發生錯誤，網頁將無法正確顯示。<br />".PHP_EOL.
+      "錯誤原因：無法與MySQL資料庫建立連線。<br />".PHP_EOL.
+    "</body></html>");
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -81,15 +88,15 @@ IP Table Suitable for Networking Administrator(s)
         <?php
             if($_SESSION['loginOK'])
             {
-                print("<a href='new.php' target='_self'>新增 ip</a>");
-                print("<a href='editor.php' target='_self'>修改 ip</a>");
-                print("<a href='add.php' target='_self'>新增使用者</a>");
+                print("<a href='new.php' target='_self'>新增IP設定 | </a>");
+                print("<a href='editor.php' target='_self'>修改IP設定 | </a>");
+                print("<a href='add.php' target='_self'>新增使用者 | </a>");
                 print("<a href='logout.php' target='_self'>登出".$_SESSION['userName']."</a>");
             }
             else
                 print("<a href='login.php' target='_self'>管理員登入</a>");
         ?>
-        
+
       </span>
     </span>
     <hr />
@@ -111,11 +118,11 @@ IP Table Suitable for Networking Administrator(s)
                 </tr>
             </thead>
             <tbody>
-                <?PHP
-                    $link = mysql_connect("localhost","iper","ipDBuse") or die("無法與MySQL建立連線");
+                <?php
+
                     mysql_select_db("iptable");
                     $result = mysql_query("select * from ips");
-                    
+
                     for ( $counter = 0; $row = mysql_fetch_row( $result ); $counter++)
                     {
                         $ipaddr = $row[0];//ip
@@ -126,33 +133,33 @@ IP Table Suitable for Networking Administrator(s)
                         $place = $row[5];//place
                         print( '<tr>' );
                             print( "<td>$ipaddr</td>" );
-                            
+
                             if($used == 0)
                                 print( "<td>未使用</td>" );
                             else
                                 print( "<td>有人用</td>" );
-                            
+
                             if(is_null($func))
                                 print( "<td >無功能資料</td>" );
                             else
                                 print( "<td>$func</td>" );
-     
+
                             if(is_null($place))
                                 print( "<td>無放置位址資料</td>" );
                             else
                                 print( "<td>$place</td>" );
-                                
+
                             if(is_null($ports))
                                 print( "<td>無port資料</td>" );
                             else
                                 print( "<td>$ports</td>" );
-                                
+
                             if(is_null($owner))
                                 print( "<td>無使用者資料</td>" );
                             else
                                 print( "<td>$owner</td>" );
-                                
-                            
+
+
                         print( '</tr>');
                     }
                     mysql_close($link);
