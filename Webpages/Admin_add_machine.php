@@ -1,5 +1,5 @@
 <?php
-print ("<?xml version=\"1.0\" encoding=\"utf-8\"?>".PHP_EOL);
+  print ("<?xml version=\"1.0\" encoding=\"utf-8\"?>".PHP_EOL);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -92,39 +92,50 @@ IP Table Suitable for Networking Administrator(s)
       <hr />
     </div>
     <div id='div_content'>
-      <table class='generic_table'>
-        <caption>新增機器</caption>
-         <thead>
-            <tr>
-              <th>IP位址</th>
-              <th>機器功能</th>
-              <th>使用的連接埠</th>
-              <th>負責人</th>
-              <th>機器所在位置</th>
-            </tr>
-          </thead>
-          <tfoot>
-            <tr>
-              <th colspan='5'><input type='submit' value='加入機器' /><input type='reset' value='清除重填' /></th>
-            </tr>
-          </tfoot>
-          <tbody>
-            <tr>
-              <td>
-                <label>140 . 121 . 80 .
-                  <select name='IP_last_4_digits'>
-                    <!--產生0~255-->
-                    <!--<option value="1">1</option>-->
-                  </select>
-                </label>
-              </td>
-              <td><input type='text' name='machine_feature' size='20' maxlength='50' /></td>
-              <td><input type='text' name='machine_ports' size='20' maxlength='50' /></td>
-              <td><input type='text' name='machine_owner' size='20' maxlength='20' /></td>
-              <td><input type='text' name='machine_location' size='20' maxlength='50' /></td>
-            </tr>
-          </tbody>
-      </table>
+      <form method='get' action=''>
+        <table class='generic_table'>
+          <caption>新增機器</caption>
+           <thead>
+              <tr>
+                <th>IP位址</th>
+                <th>機器功能</th>
+                <th>使用的連接埠</th>
+                <th>負責人</th>
+                <th>機器所在位置</th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <th colspan='5'>
+                  <input type='submit' value='加入機器' />
+                    <input type='reset' value='清除重填' />
+                </th>
+              </tr>
+            </tfoot>
+            <tbody>
+              <tr>
+                <td>
+                  <label>140 . 121 . 80 .
+                    <select name='IP_last_4_digits'>
+                      <!--產生0~255-->
+                      <?php
+                      for($count = 0; $count <= 255; $count++){
+                        print(PHP_EOL."<option value='".$count."'>".$count."</option>");
+                      }
+                      print(PHP_EOL);
+                      ?>
+                      <!--<option value="1">1</option>-->
+                    </select>
+                  </label>
+                </td>
+                <td><input type='text' name='machine_feature' size='20' maxlength='50' /></td>
+                <td><input type='text' name='machine_ports' size='20' maxlength='50' /></td>
+                <td><input type='text' name='machine_owner' size='20' maxlength='20' /></td>
+                <td><input type='text' name='machine_location' size='20' maxlength='50' /></td>
+              </tr>
+            </tbody>
+        </table>
+      </form>
     </div>
     <!--footer-->
     <!--版本：1.00(0)201112012220-->

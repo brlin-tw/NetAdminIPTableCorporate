@@ -79,7 +79,7 @@ IP Table Suitable for Networking Administrator(s)
     <!--版本：1.01(1)201112021727-->
     <span id='div_header'>
       <span id='div_header_left'>
-        <a href='../index.html' target='_self'>至外層頁面</a>
+        <a href='../' target='_self'>至外層頁面</a>
       </span>
       <span id='div_header_center'>
         <!--<a href='javascript:window.history.back();' target='_self'>回上一頁</a>-->
@@ -88,10 +88,10 @@ IP Table Suitable for Networking Administrator(s)
         <?php
             if($_SESSION['loginOK'])
             {
-                print("<a href='new.php' target='_self'>新增IP設定 | </a>");
-                print("<a href='editor.php' target='_self'>修改IP設定 | </a>");
-                print("<a href='add.php' target='_self'>新增使用者 | </a>");
-                print("<a href='logout.php' target='_self'>登出".$_SESSION['userName']."</a>");
+                print("<a href='new.php' target='_self'>新增IP設定</a> | ");
+                print("<a href='Webpages/Admin_add_machine.php' target='_self'>修改IP設定</a> | ");
+                print("<a href='add.php' target='_self'>新增管理員帳號</a> | ");
+                print("<a href='logout.php' target='_self'>登出".$_SESSION['userName']."帳號</a>");
             }
             else
                 print("<a href='login.php' target='_self'>管理員登入</a>");
