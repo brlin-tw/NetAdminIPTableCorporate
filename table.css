@@ -1,0 +1,71 @@
+@font-face {
+  font-family: "MONACO";
+  src: url(http://140.121.80.60/MONACO.TTF);
+}
+
+table {
+  margin-top:15px;
+  border-collapse: collapse;
+  border: none;
+  font: normal 11px MONACO;
+  background-image: url(http://www.acuity.com.br/extern/icant.co.uk/bg_acuity.gif); 
+  background-repeat: repeat;
+  border-spacing: 1px;
+  text-align:center;
+  width: 95%;
+  }
+caption {
+  text-align: left;
+  font: normal 13px MONACO;
+  background: transparent;
+  }
+td, th {
+  border: none;
+  padding: .8em;
+  color: #fff8dc;
+
+  }
+thead th, tfoot th {
+  font: bold 12px MONACO;
+  border: none;
+  text-align: center;
+  background: #000000;
+  color: #00FF0C;
+  padding-top:4px;
+  }
+tbody td a {
+  background: transparent;
+  text-decoration: none;
+  color: #fff8dc;
+  }
+tbody td a:hover {
+  background: transparent;
+  color: #00FF0C;
+  }
+  tbody td:hover {
+  background: transparent;
+  color: #e6b422;
+  }
+tbody th a {
+  font: bold 11px MONACO;
+  background: transparent;
+  text-decoration: none;
+  font-weight:normal;
+  color: #fff8dc;
+  }
+  
+tbody th a:hover {
+  background: transparent;
+  color: #00FF0C;
+  }
+
+.odd {
+  background: #000000;
+  }
+tbody tr:hover {
+  background: #7B7B7B;
+  }
+  
+tbody tr:hover th,tbody tr.odd:hover th {
+  background: #7B7B7B;
+  }

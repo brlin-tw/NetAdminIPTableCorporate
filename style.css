@@ -1,0 +1,35 @@
+﻿@font-face {
+  font-family: "MONACO";
+  src: url(http://140.121.80.60/MONACO.TTF);
+}
+
+html{
+    background : #3C3C3C;
+}
+
+html body{
+    margin: 10px auto;
+    width: 800px;
+    color: black;
+    background : #E0E0E0;
+    font-family: "MONACO";
+}
+
+#div_content table{
+    margin:auto;
+    text-align:center
+}
+
+#div_footer{
+    font-size: small;
+    margin: 10px;
+}
+
+#div_header_right{
+    float: right; 
+}
+
+#generic_table{
+    background : #F0F0F0;
+}
+

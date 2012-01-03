@@ -1,0 +1,31 @@
+##.gitignore範本
+##.gitignore用途
+#   避免git將不想add至staging area的檔案add到staging area中。
+##.gitignore語法
+#可以使用glob patterns
+# http://en.wikipedia.org/wiki/Glob_%28programming%29
+#  #←這是單行註解
+#  *.so←不track副檔名為so的檔案
+#  !trackThis.so←即使有*.so也會track此檔案
+#  /FILE←只不track根目錄的FILE檔案
+#  build/←忽略build目錄下的所有檔案
+#  doc/*.txt←doc/a.txt會被忽略但是doc/a/b.txt則不會被忽略（那怎樣才能忽略呢？）
+
+##Linux通用設定
+.*
+!.gitignore
+
+##文字編輯軟體備份檔
+#通用備份檔副檔名
+*~
+
+#Kate的備份檔
+*.kate-swp
+
+#Object Code...
+*.o
+*.obj
+
+##封存／壓縮檔
+*.7z
+*.zip
