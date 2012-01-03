@@ -1,0 +1,27 @@
+@charset "UTF-8";
+ /*
+  *  charset @-規則：宣告CSS使用的文字編碼。
+  *  import @-規則：將其他位置的樣式表import到此樣式表
+  */
+ /*
+  * CSS樣式表範本
+  *  CSS樣式表用途：。
+  *  CSS樣式表版本：0.00(0)
+  *  CSS樣式表範本版本：1.01(1)201112012353
+  *  CSS創作者：林博仁(Henry Lin, pika1021@gmail.com)
+  *  此CSS使用的智慧財產授權：自由使用(free)
+  * 已知問題：
+  *
+  * 待辦事項：
+  *
+  */
+  #row_action{
+    text-align:center;
+
+  }
+  @media screen{
+
+  }
+  @media print{
+
+  }

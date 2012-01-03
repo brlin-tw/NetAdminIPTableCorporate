@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+ /*
+  * 適用於網路管理者的IP位址表的全域CSS樣式表
+  *  CSS樣式表用途：
+  *  CSS樣式表版本：0.00(0)
+  *  CSS樣式表範本版本：1.00(0)201110091754
+  *  CSS創作者：林博仁(Henry Lin, pika1021@gmail.com)
+  *  此CSS使用的智慧財產授權：自由使用(free)
+  * 已知問題：
+  *
+  * 待辦事項：
+  *
+  * 變更紀錄：
+  *
+  */
+  #div_content{
+    width:50%;
+    margin:0 auto;
+  }
+  @media screen{
+
+
+  }
+  @media print{
+   /*通用body樣式*/
+    .generic_body{
+     /*透明背景*/
+     background-color:transparent;
+    }
+ }
