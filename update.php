@@ -1,27 +1,30 @@
 ﻿<?php 
-    session_start();
+    include_once("functions.php");
 
 	//if(count($_POST)>0){ foreach($_POST as $k=>$v){ echo $k."=".$v; } }
 
-    if(!$_SESSION['loginOK']){
+    if(isUser()){
         echo '<script type="text/javascript">';
         echo 'window.alert("錯誤!")';
         echo "</script>";
         echo '<script type="text/javascript">';
         echo " window.location='index.php';";
         echo "</script>";
+        exit;
     }
 
     $link = mysql_connect("localhost","iper","ipDBuse") or die("無法與MySQL建立連線");
     mysql_select_db("iptable"); 
 
-    if($_POST["submit"]=='修改機器' || $_POST["submit"]=='加入機器')
-    {
-	$ip = $_POST["IP_last_4_digits"];
-	$feature = $_POST["machine_feature"];
-	$ports = $_POST["machine_ports"];
-	$location = $_POST["machine_location"];
-        $query = 'UPDATE ips SET used=1,func="'.$feature.'",ports="'.$ports.'",owner="'.$_SESSION['userName'].'",place="'.$location.'" WHERE ip="'.$ip.'"';
+
+    if ($_POST["submit"]=='修改機器' || $_POST["submit"]=='加入機器') {
+        $ip = $_POST["IP_last_4_digits"];
+        $feature = $_POST["machine_feature"];
+        $ports = $_POST["machine_ports"];
+        $owner = $_POST["machine_owner"];
+        $location = $_POST["machine_location"];
+
+        $query = 'UPDATE ips SET used=1,func="'.$feature.'",ports="'.$ports.'",owner="'.$owner.'",place="'.$location.'" WHERE ip="'.$ip.'"';
     }
 
     if($_POST["submit"]=='清除機器')
@@ -53,17 +56,7 @@
 	}
     }
 
-    if($_POST["submit"]=='root修改機器')
-    {
-	$ip = $_POST["IP_last_4_digits"];
-	$feature = $_POST["machine_feature"];
-	$ports = $_POST["machine_ports"];
- 	$owner = $_POST["machine_owner"];
-	$location = $_POST["machine_location"];
-        $query = 'UPDATE ips SET used=1,func="'.$feature.'",ports="'.$ports.'",owner="'.$owner.'",place="'.$location.'" WHERE ip="'.$ip.'"';
-    }
-
-    if($_POST["submit"]=='root清除機器')
+    if($_POST["submit"]=='清除機器')
     {
         $ip = $_POST["IP_last_4_digits"];
 	$query = 'UPDATE ips SET used=0 WHERE ip="'.$ip.'"';
@@ -72,13 +65,15 @@
     $result = mysql_query($query);
     mysql_close($link);
     //echo $query;
-    echo "<script type='text/javascript'> <!--";
-    echo " window.location='index.php'; //-->";
+    echo "<script type='text/javascript'>";
+    echo " window.location='index.php';";
     echo "</script>";
 
 
 /**********************************************************/
 function check(){
+    if (!isSuperUser()) return false;
+
     $userName = $_POST["account_name"];
     $userPasswd = $_POST["account_password"];
     
@@ -90,8 +85,8 @@ function check(){
 	    return true;
         }
     }
+
     return false;
-	    //return true;
 }
 /**********************************************************/
 
