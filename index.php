@@ -54,13 +54,7 @@ IP Table Suitable for Networking Administrator(s)
     <meta name="keywords" content="IP位址表" />
     <meta name="robots" content="index,follow" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <!--
-    <style type='text/css'></style>
-    <link href='' rel='stylesheet' type='text/css' />
-    <script src='' type='text/javascript'></script>
-    -->
-    <link href='style.css' rel='stylesheet' type='text/css'/>
-    <link href='table.css' rel='stylesheet' type='text/css'/>
+    <link href='styles/screen.css' rel='stylesheet' type='text/css'/>
   </head>
   <!--body標籤：包含網頁的內容(content)
         XHTML規範需要／選用的屬性：
