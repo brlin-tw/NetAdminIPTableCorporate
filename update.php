@@ -3,7 +3,7 @@
 
 	//if(count($_POST)>0){ foreach($_POST as $k=>$v){ echo $k."=".$v; } }
 
-    if(isUser()){
+    if(!isUser()){
         echo '<script type="text/javascript">';
         echo 'window.alert("錯誤!")';
         echo "</script>";
