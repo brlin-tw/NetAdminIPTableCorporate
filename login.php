@@ -1,5 +1,5 @@
 <?php
-print ("<?xml version=\"1.0\" encoding=\"utf-8\"\n");
+	print ("<?xml version='1.0' encoding='utf-8'?>\n");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -78,9 +78,9 @@ XHTML 1.0 Transitional範本
       </div>
       <hr />
     </div>
-    <div id='div_content'>
-      <table id='generic_table'>
-        <form action='check.php' method='post'>
+    <div id='div_content'> 
+	<form action='check.php' method='post'>
+          <table id='generic_table'>       
           <caption>管理員登入</caption>
           <thead>
             <tr>
@@ -97,20 +97,20 @@ XHTML 1.0 Transitional範本
           </tfoot>
           <tbody>
             <tr>
-              <label>
+
                 <td>管理員帳號名稱：</td>
                 <td><input type='text' name='account_name' size='30' maxlength='20' /></td>
-              </label>
+
             </tr>
             <tr>
-              <label>
+
                 <td>管理員帳號密碼：</td>
                 <td><input type='password' name='account_password' size='30' maxlength='30' /></td>
-              </label>
+
             </tr>
           </tbody>
-        </form>
-      </table>
+        </table>
+      </form>
     </div>
     <!--footer-->
     <!--版本：1.00(0)201112012220-->

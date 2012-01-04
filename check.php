@@ -2,12 +2,12 @@
 <?php 
     session_start();
 
-    if(count($_POST)<0){
-        echo "<script language='javascript'>";
-        echo 'alert("登入錯誤")';
+    if($_SESSION['loginOK']){
+        echo '<script type="text/javascript">';
+        echo 'window.alert("已登入!")';
         echo "</script>";
-        echo "<script language='javascript'>";
-        echo " location='index.php';";
+        echo '<script type="text/javascript">';
+        echo " window.location='index.php';";
         echo "</script>";
     }
     
@@ -21,23 +21,23 @@
     $result = mysql_query($query);
     if($result){
         $row = mysql_fetch_row( $result );
-        if($userPasswd === $row[0]){
+        if($userPasswd == $row[0]){
             $_SESSION['loginOK'] = true;
             $_SESSION['userName'] = $userName;
         }else{
             $_SESSION['loginOK'] = false;
-            echo "<script language='javascript'>";
-            echo 'window.alert("登入錯誤")';
+            echo '<script type="text/javascript">';
+            echo 'window.alert("登入錯誤");';
             echo "</script>";
         }
     }else{
         $_SESSION['loginOK'] = false;
-        echo "<script language='javascript'>";
-        echo 'window.alert("No result !!")';
+        echo '<script type="text/javascript">';
+        echo 'window.alert("No result !!");';
         echo "</script>";
     }
-    
-    echo "<script language='javascript'>";
-    echo "window.location='index.php';";
+    mysql_close($link);
+    echo '<script type="text/javascript">';
+    echo " window.location='index.php';";
     echo "</script>";
 ?>

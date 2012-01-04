@@ -1,13 +1,15 @@
 <?php
-    session_start();
-    print ("<?xml version='1.0' encoding='utf-8'?>\n");
+  session_start();
+  print ("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
+
 ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!--（此標籤包住的內容為註解）以上為XML和DTD(Document Type
     Definition)的宣告-->
 <!--
-首頁（唯讀模式） |
+新增管理員帳號 |
 適用於網路管理者的IP位址表
 IP Table Suitable for Networking Administrator(s)
     本網頁使用的智慧財產授權：
@@ -29,7 +31,7 @@ IP Table Suitable for Networking Administrator(s)
   <!--head標籤：包含一些metadata（中介資料）-->
   <head>
     <!--title標籤：顯示於標題列(title bar)的文字-->
-    <title>首頁（唯讀模式） | 適用於網路管理者的IP位址表</title>
+    <title>新增管理員帳號 | 適用於網路管理者的IP位址表</title>
     <!--meta標籤：一些非此標籤所能表示的一些其他的metadata（中介資料）
           name屬性：metadata的名稱
             author：網頁的創作者名稱。
@@ -60,16 +62,24 @@ IP Table Suitable for Networking Administrator(s)
     <script src='' type='text/javascript'></script>
     -->
     <link href='style.css' rel='stylesheet' type='text/css'/>
-    <link href='table.css' rel='stylesheet' type='text/css'/>
+	<?php
+	    if(!$_SESSION['loginOK'])
+	    {
+	        echo '<script type="text/javascript">';
+	        echo " window.location='index.php';";
+     	        echo "</script>";
+	    }
+	?>
   </head>
   <!--body標籤：包含網頁的內容(content)
         XHTML規範需要／選用的屬性：
           xml:lang：用來宣告XML使用的語言
         參考網址：https://developer.mozilla.org/en/HTML/Element/body
     -->
-  <body xml:lang="zh-TW" lang="zh-TW">
+  <body xml:lang="zh-TW" lang="zh-TW" class='generic_body'>
     <!--header-->
     <!--版本：1.01(1)201112021727-->
+
     <span id='div_header'>
       <span id='div_header_left'>
         <a href='index.php' target='_self'>至外層頁面</a>
@@ -92,78 +102,146 @@ IP Table Suitable for Networking Administrator(s)
         
       </span>
     </span>
-    <hr />
+
     <div id='div_content'>
-      <div id='control_area'>
-        <!--放置控制按鈕的區塊-->
-      </div>
-      <div id='ip_table'>
-        <table>
-            <caption>網段140.121.80.X的IP配置狀態如下：</caption>
-            <thead>
-                <tr>
-                    <th>IP位址</th>
-                    <th>有無被設定</th>
-                    <th>機器功能</th>
-                    <th>使用的連接埠</th>
-                    <th>負責人</th>
-                    <th>機器所在位置</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?PHP
-                    $link = mysql_connect("localhost","iper","ipDBuse") or die("無法與MySQL建立連線");
-                    mysql_select_db("iptable");
-                    $result = mysql_query("select * from ips");
-                    
-                    for ( $counter = 0; $row = mysql_fetch_row( $result ); $counter++)
-                    {
-                        $ipaddr = $row[0];//ip
-                        $used = $row[1];//used
-                        $func = $row[2];//func
-                        $ports = $row[3];//ports
-                        $owner = $row[4];//owner
-                        $place = $row[5];//place
-			
-			if($used == 0)
-			    continue;
+      <table id='generic_table'>
+        <form action='update.php' method='post'>
+          <caption>新增管理員帳號</caption>
+          <tfoot>
+            <tr id='row_action'>
+              <td colspan='2'>
+                <input type='submit' name='submit' value='新增管理員' />
+		<input type='submit' name='submit' value='刪除管理員' />
+                <input type='reset' value='清空重填' />
+              </td>
+            </tr>
+          </tfoot>
+          <tbody>
+            <tr>
+              <label>
+                <td>管理員帳號名稱：</td>
+                <td><input type='text' name='account_name' size='30' maxlength='20' /></td>
+              </label>
+            </tr>
+            <tr>
+              <label>
+                <td>管理員帳號密碼：</td>
+                <td><input type='password' name='account_password' size='30' maxlength='30' /></td>
+              </label>
+            </tr>
+            <tr>
+              <label>
+                <td>新增管理員帳號名稱：</td>
+                <td><input type='text' name='new_account_name' size='30' maxlength='20' /></td>
+              </label>
+            </tr>
+            <tr>
+              <label>
+                <td>新增管理員帳號密碼：</td>
+                <td><input type='password' name='new_account_password' size='30' maxlength='30' /></td>
+              </label>
+            </tr>
+            <tr>
+              <label>
+                <td>新增管理員帳號密碼（二次確認）：</td>
+                <td><input type='password' name='new_account_password_check' size='30' maxlength='30' /></td>
+              </label>
+            </tr>
+              <label>
+                <td>新增管理員電子郵件信箱：</td>
+                <td><input type='text' name='new_account_mail' size='30' maxlength='30' /></td>
+              </label>
+            <tr>
+              <label>
+                <td>新增管理員電話號碼：</td>
+                <td><input type='text' name='new_account_phone' size='30' maxlength='30' /></td>
+              </label>
+            </tr>
+          </tbody>
+        </form>
+      </table>
+      
 
-                        print( '<tr>' );
-                            print( "<td>$ipaddr</td>" );
-                            print( "<td>有人用</td>" );
-                            
-                            if(is_null($func))
-                                print( "<td >無功能資料</td>" );
-                            else
-                                print( "<td>$func</td>" );            
-                                
-                            if(is_null($ports))
-                                print( "<td>無port資料</td>" );
-                            else
-                                print( "<td>$ports</td>" );
-                                
-                            if(is_null($owner))
-                                print( "<td>無使用者資料</td>" );
-                            else
-                                print( "<td>$owner</td>" );
+	<table id='generic_table'>
+	<form action='update.php' method='post'>
+        <caption>新增機器</caption>
+         <thead>
+            <tr>
+              <th>IP位址</th>
+              <th>機器功能</th>
+              <th>使用的連接埠</th>
+              <th>負責人</th>
+              <th>機器所在位置</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th colspan='5'>
+		<input type='submit' name = 'submit' value='root修改機器' />
+		<input type='submit' name = 'submit' value='root清除機器' />
+		<input type='reset' value='清除重填' />
+	      </th>
+            </tr>
+          </tfoot>
+          <tbody>
+            <tr>
+              <td> 
+                  <select name='IP_last_4_digits'>
+                    <!--產生0~255-->
 
-			    if(is_null($place))
-                                print( "<td>無放置位址資料</td>" );
-                            else
-                                print( "<td>$place</td>" );   
-                            
-                        print( '</tr>');
-                    }
-                    mysql_close($link);
-                ?>
-            </tbody>
-        </table>
-      </div>
+			  <?PHP
+			    $link = mysql_connect("localhost","iper","ipDBuse") or die("無法與MySQL建立連線");
+			    mysql_select_db("iptable");
+			    $result = mysql_query("select * from ips");
+			    
+			    for ( $counter = 0; $row = mysql_fetch_row( $result ); $counter++)
+			    {
+				$ipaddr = $row[0];//ip
+				$used = $row[1];//used
+				if($used)
+				  print('<option value="'.$ipaddr.'">'.$ipaddr.'</option>');
+
+			    }
+			    mysql_close($link);
+			?>
+
+                    <!--<option value="1">1</option>-->
+                  </select>
+              </td>
+              <td><input type='text' name='machine_feature' size='20' maxlength='50' value="web server"/></td>
+              <td><input type='text' name='machine_ports' size='20' maxlength='50' value="80"/></td>
+              <td>
+		<select name='machine_owner'>
+                    <!--產生0~255-->
+
+			  <?PHP
+			    $link = mysql_connect("localhost","iper","ipDBuse") or die("無法與MySQL建立連線");
+			    mysql_select_db("iptable");
+			    $result = mysql_query("select name from users");
+			    
+			    for ( $counter = 0; $row = mysql_fetch_row( $result ); $counter++)
+			    {
+				$userName = $row[0];//ip
+				print('<option value="'.$userName.'">'.$userName.'</option>');
+
+			    }
+			    mysql_close($link);
+			?>
+
+                    <!--<option value="1">1</option>-->
+                  </select>
+	      </td>
+              <td><input type='text' name='machine_location' size='20' maxlength='50' value="no idea"/></td>
+            </tr>
+          </tbody>
+	</form>
+      </table>
+
 
     </div>
     <!--footer-->
     <!--版本：1.00(0)201112012220-->
-    <div id='div_footer'>
+    <div class='div_footer'>
       <hr />
       <div id='div_footer_copyright'>
         智慧財產權歸屬：國立海洋大學資訊工程學系　B97570146楊力維 09957010林博仁<br />
