@@ -30,12 +30,12 @@
                 
                 for ( $counter = 0; $row = mysql_fetch_row( $result ); $counter++)
                 {
-                    $ipaddr = $row[0];//ip
-                    $used = $row[1];//used
-                    $func = $row[2];//func
-                    $ports = $row[3];//ports
-                    $owner = $row[4];//owner
-                    $place = $row[5];//place
+                    $ipaddr = htmlspecialchars($row[0]);//ip
+                    $used = htmlspecialchars($row[1]);//used
+                    $func = htmlspecialchars($row[2]);//func
+                    $ports = htmlspecialchars($row[3]);//ports
+                    $owner = htmlspecialchars($row[4]);//owner
+                    $place = htmlspecialchars($row[5]);//place
     		
     		if($used == 0)
     		    continue;

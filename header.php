@@ -31,7 +31,7 @@
     
       <ul class="nav secondary-nav">
         <?php if (isUser()):?>
-        <li><a href="logout.php">登出 <?php print($_SESSION['userName'])?></a></li>
+        <li><a href="logout.php">登出 <?php htmlspecialchars(print($_SESSION['userName']))?></a></li>
         <?php else: ?>
         <li><a href="login.php">登入</a></li>
         <?php endif; ?>

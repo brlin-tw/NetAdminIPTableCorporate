@@ -38,7 +38,7 @@
     	    $used = $row[1];//used
     	    if(!$used)
     	    {
-    	    	print('<option value="'.$ipaddr.'">'.$ipaddr.'</option>');
+    	    	print('<option value="'.htmlspecialchars($ipaddr).'">'.htmlspecialchars($ipaddr).'</option>');
     	    }
     	}
     	mysql_close($link);

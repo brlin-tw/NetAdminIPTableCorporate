@@ -38,7 +38,7 @@
           $used = $row[1];
   	  $owner = $row[4];
   	  if($used && ($owner==$_SESSION['userName'] || isSuperUser())) {
-  	  	print('<option value="'.$ipaddr.'">'.$ipaddr.'</option>');
+  	  	print('<option value="'.htmlspecialchars($ipaddr).'">'.htmlspecialchars($ipaddr).'</option>');
   	  }
         }
         mysql_close($link);
@@ -73,7 +73,7 @@
         {
           $userName = $row[0];//ip
           if ($userName == $_SESSION['userName']) {
-            print('<option value="'.$userName.'" selected="selected">'.$userName.'</option>');
+            print('<option value="'.htmlspecialchars($userName).'" selected="selected">'.htmlspecialchars($userName).'</option>');
           }
           else
           {
