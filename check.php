@@ -10,8 +10,8 @@
         echo "</script>";
     }
     
-    $userName = $_POST["account_name"];
-    $userPasswd = $_POST["account_password"];
+    $userName = mysql_real_escape_string($_POST["account_name"]);
+    $userPasswd = mysql_real_escape_string($_POST["account_password"]);
 
     $link = mysql_connect("localhost","iper","ipDBuse") or die("無法與MySQL建立連線");
     mysql_select_db("iptable");
