@@ -9,7 +9,7 @@
     exit;
   }
 
-  $title = "新增機器";
+  $title = "新增IP";
   $page = "new";
   include ("header.php");
 ?>

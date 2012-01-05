@@ -9,7 +9,7 @@
     exit;
   }
 
-  $title = "超級管理者";
+  $title = "新增/刪除帳號";
   $page = "admin";
   include ("header.php");
 ?>
