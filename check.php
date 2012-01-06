@@ -1,12 +1,10 @@
 ﻿<?php 
-    session_start();
+    include_once ("functions.php");
 
-    if($_SESSION['loginOK']){
+    if (isUser()) {
         echo '<script type="text/javascript">';
         echo 'window.alert("已登入!")';
-        echo "</script>";
-        echo '<script type="text/javascript">';
-        echo " window.location='index.php';";
+        echo "window.location='index.php';";
         echo "</script>";
     }
     
@@ -16,25 +14,19 @@
     $link = mysql_connect("localhost","iper","ipDBuse") or die("無法與MySQL建立連線");
     mysql_select_db("iptable");
     
-    $query = 'SELECT passwd FROM users WHERE name="'.$userName.'"';
+    $query = "SELECT * FROM users WHERE name=\"$userName\" AND passwd=\"$userPasswd\"";
     $result = mysql_query($query);
-    if($result){
-        $row = mysql_fetch_row( $result );
-        if($userPasswd == $row[0]){
-            $_SESSION['loginOK'] = true;
-            $_SESSION['userName'] = $userName;
-        }else{
-            $_SESSION['loginOK'] = false;
-            echo '<script type="text/javascript">';
-            echo 'window.alert("登入錯誤");';
-            echo "</script>";
-        }
-    }else{
-        $_SESSION['loginOK'] = false;
+
+    if ($result && mysql_num_rows($result) > 0) {
+        $_SESSION['loginOK'] = true;
+        $_SESSION['userName'] = $userName;
+    } else {
+        unset($_SESSION['loginOK']);
         echo '<script type="text/javascript">';
-        echo 'window.alert("No result !!");';
+        echo 'window.alert("登入錯誤");';
         echo "</script>";
     }
+
     mysql_close($link);
     echo '<script type="text/javascript">';
     echo " window.location='index.php';";
