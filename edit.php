@@ -1,8 +1,8 @@
 <?php
   include_once ("functions.php");
 
-  if(!isUser())
-  {
+  if(!isUser()) {
+    setFlash("請登入", "error");
     echo '<script type="text/javascript">';
     echo " window.location='index.php';";
     echo "</script>";

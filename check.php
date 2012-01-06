@@ -1,34 +1,20 @@
 ﻿<?php 
-    include_once ("functions.php");
+include_once ("functions.php");
 
-    if (isUser()) {
-        echo '<script type="text/javascript">';
-        echo 'window.alert("已登入!")';
-        echo "window.location='index.php';";
-        echo "</script>";
-    }
-    
-    $link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD) or die("無法與MySQL建立連線");
-    mysql_select_db(MYSQL_DATABASE);
-
-    $userName = mysql_real_escape_string($_POST["account_name"]);
-    $userPasswd = mysql_real_escape_string($_POST["account_password"]);
-    
-    $query = "SELECT * FROM users WHERE name=\"$userName\" AND passwd=\"$userPasswd\"";
-    $result = mysql_query($query);
-
-    if ($result && mysql_num_rows($result) > 0) {
+if (isUser()) {
+    setFlash("您已經登入了", "info");
+} else {
+    $loginUser = user_account_check($_POST["account_name"], $_POST["account_password"]);
+    if ($loginUser) {
         $_SESSION['loginOK'] = true;
-        $_SESSION['userName'] = $userName;
+        $_SESSION['userName'] = $loginUser;
+        setFlash(htmlspecialchars($loginUser)." 您好！", "success");
     } else {
-        unset($_SESSION['loginOK']);
-        echo '<script type="text/javascript">';
-        echo 'window.alert("登入錯誤");';
-        echo "</script>";
+        setFlash("<strong>登入失敗</strong> — 請檢查您的帳號密碼", "error");
     }
+}
 
-    mysql_close($link);
-    echo '<script type="text/javascript">';
-    echo " window.location='index.php';";
-    echo "</script>";
+echo '<script type="text/javascript">';
+echo " window.location='index.php';";
+echo "</script>";
 ?>

@@ -39,3 +39,16 @@
     </div>
   </div>
 </div>
+
+<?php
+/* flash message */
+if (hasFlash()) :
+  var $flashMessage = getFlash();
+?>
+<div class="container">
+  <div class="alert-message <?php echo $flashMessage['type']; ?>">
+    <a class="close" href="#">×</a>
+    <p><?php echo $flashMessage['message']; ?></p>
+  </div>
+</div>
+<?php endif; ?>

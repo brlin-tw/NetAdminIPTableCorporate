@@ -3,6 +3,7 @@
 
   if(isUser())
   {
+    setFlash("您已經登入了", "info");
     echo '<script type="text/javascript">';
     echo " window.location='index.php';";
     echo "</script>";

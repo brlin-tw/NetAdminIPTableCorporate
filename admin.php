@@ -1,8 +1,8 @@
 <?php
   include_once ("functions.php");
 
-  if(!isSuperUser())
-  {
+  if(!isSuperUser()) {
+    setFlash("請使用管理者帳號登入", "error");
     echo '<script type="text/javascript">';
     echo " window.location='index.php';";
     echo "</script>";
