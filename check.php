@@ -8,8 +8,8 @@
         echo "</script>";
     }
     
-    $link = mysql_connect("localhost","iper","ipDBuse") or die("無法與MySQL建立連線");
-    mysql_select_db("iptable");
+    $link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD) or die("無法與MySQL建立連線");
+    mysql_select_db(MYSQL_DATABASE);
 
     $userName = mysql_real_escape_string($_POST["account_name"]);
     $userPasswd = mysql_real_escape_string($_POST["account_password"]);

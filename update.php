@@ -11,8 +11,8 @@
         exit;
     }
 
-    $link = mysql_connect("localhost","iper","ipDBuse") or die("無法與MySQL建立連線");
-    mysql_select_db("iptable"); 
+    $link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD) or die("無法與MySQL建立連線");
+    mysql_select_db(MYSQL_DATABASE); 
 
 
     if ($_POST["submit"]=='修改機器' || $_POST["submit"]=='加入機器') {
