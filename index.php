@@ -42,7 +42,7 @@
 
                     print( '<tr>' );
                         print( "<td>$ipaddr</td>" );
-                        print( "<td>已被設定</td>" );
+                        print( "<td>已被使用</td>" );
 
                         if(is_null($func))
                             print( "<td >無功能資料</td>" );
