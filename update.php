@@ -62,9 +62,10 @@ if(!isUser()){
         if(!$result) {
             setFlash("<strong>資料庫操作失敗</strong> — 這種錯誤不應該發生，請聯絡管理員", "error");
         }
+
+        mysql_close($link);
     }
     
-    mysql_close($link);
 }
 
 echo "<script type='text/javascript'>";

@@ -35,6 +35,8 @@ function user_account_check($username, $password){
     } else {
         return false;
     }
+
+    mysql_close($link);
 }
 
 function setFlash($message, $type = "warning") {
