@@ -65,7 +65,6 @@ if(!isUser()){
 
         mysql_close($link);
     }
-    
 }
 
 echo "<script type='text/javascript'>";

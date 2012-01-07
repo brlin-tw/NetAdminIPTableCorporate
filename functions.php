@@ -31,12 +31,14 @@ function user_account_check($username, $password){
     $result = mysql_query($query);
 
     if ($result && mysql_num_rows($result) > 0) {
-        return $username;
+        $r = username;
     } else {
-        return false;
+        $r = false
     }
 
     mysql_close($link);
+
+    return $r;
 }
 
 function setFlash($message, $type = "warning") {
