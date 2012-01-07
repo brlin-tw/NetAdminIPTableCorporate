@@ -5,7 +5,7 @@ print ('<?xml version="1.0" encoding="utf-8"?>'); ?>
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh_TW" lang="zh_TW">
 <head>
-<title><?php print($title);?> | IP Manager</title>
+<title><?php print($title);?> | 適用於網路管理者的IP位址表</title>
 <meta name="author" content="國立海洋大學資訊工程學系 B97570146 楊力維、09957010 林博仁、Ming-Ting Wei" />
 <meta name="description" content="適用於網路管理者的IP位址表" />
 <meta name="generator" content="Vim" />
