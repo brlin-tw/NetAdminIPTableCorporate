@@ -14,7 +14,7 @@
     <meta name="robots" content="index,follow" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <link href='styles/screen.css' rel='stylesheet' type='text/css' />
-    <link href='icons/favicon.ico' rel='icon' type='image/vnd.microsoft.icon' />
+    <link href='favicons/favicon.ico' rel='icon' type='image/vnd.microsoft.icon' />
     <script type="text/javascript" src="scripts/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="scripts/bootstrap-alerts.js"></script>
     <script type="text/javascript" src="scripts/jquery.tablesorter.min.js"></script>
