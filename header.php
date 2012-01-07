@@ -17,7 +17,7 @@
 <div class="topbar">
   <div class="topbar-inner">
     <div class="container">
-      <a class="brand" href="index.php">IP Manager</a>
+      <a class="brand" href="index.php">適用於網路管理者的IP位址表</a>
     
       <?php if (isUser()):?>
         <ul class="nav">
