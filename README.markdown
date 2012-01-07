@@ -1,4 +1,4 @@
-IP Monitor
+適用於網路管理者的IP位址表 | IP Table Suitable for Networking Administrator(s)
 ==========
 
 這個專案可用於管理一區域網路中的 IP，使用 PHP、MySQL。
