@@ -1,23 +1,24 @@
 <?php 
-print ("<?xml version='1.0' encoding='utf-8'?>".PHP_EOL);
-include_once ("functions.php");
+  print ("<?xml version='1.0' encoding='utf-8'?>".PHP_EOL);
+  include_once ("functions.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh_TW" lang="zh_TW">
-<head>
-<title><?php print($title);?> | 適用於網路管理者的IP位址表</title>
-<meta name="author" content="國立海洋大學資訊工程學系 B97570146 楊力維、09957010 林博仁、Ming-Ting Wei" />
-<meta name="description" content="適用於網路管理者的IP位址表" />
-<meta name="generator" content="Vim" />
-<meta name="keywords" content="IP位址表" />
-<meta name="robots" content="index,follow" />
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link href='styles/screen.css' rel='stylesheet' type='text/css'/>
-<script type="text/javascript" src="scripts/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="scripts/bootstrap-alerts.js"></script>
-<script type="text/javascript" src="scripts/jquery.tablesorter.min.js"></script>
-<script type="text/javascript" src="scripts/functions.js"></script>
+  <head>
+    <title><?php print($title);?> | 適用於網路管理者的IP位址表</title>
+    <meta name="author" content="國立海洋大學資訊工程學系 B97570146 楊力維、09957010 林博仁、Ming-Ting Wei" />
+    <meta name="description" content="適用於網路管理者的IP位址表" />
+    <meta name="generator" content="Vim" />
+    <meta name="keywords" content="IP位址表" />
+    <meta name="robots" content="index,follow" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link href='styles/screen.css' rel='stylesheet' type='text/css' />
+    <link href='icons/favicon.ico' rel='icon' type='image/vnd.microsoft.icon' />
+    <script type="text/javascript" src="scripts/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap-alerts.js"></script>
+    <script type="text/javascript" src="scripts/jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="scripts/functions.js"></script>
 </head>
 <body>
 <div class="topbar">
