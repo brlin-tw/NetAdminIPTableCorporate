@@ -53,7 +53,7 @@ function hasFlash() {
 }
 
 function getFlash($drop = true) {
-    var $flashMessage = $_SESSION['flash'];
+    $flashMessage = $_SESSION['flash'];
     if ($drop) {
         unset($_SESSION['flash']);
     }

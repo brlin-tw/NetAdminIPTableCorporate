@@ -43,7 +43,7 @@
 <?php
 /* flash message */
 if (hasFlash()) :
-  var $flashMessage = getFlash();
+  $flashMessage = getFlash();
 ?>
 <div class="container">
   <div class="alert-message <?php echo $flashMessage['type']; ?>">
