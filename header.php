@@ -13,11 +13,11 @@ include_once ("functions.php");
 <meta name="keywords" content="IP位址表" />
 <meta name="robots" content="index,follow" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link href='/styles/screen.css' rel='stylesheet' type='text/css'/>
-<script type="text/javascript" src="/scripts/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="/scripts/bootstrap-alerts.js"></script>
-<script type="text/javascript" src="/scripts/jquery.tablesorter.min.js"></script>
-<script type="text/javascript" src="/scripts/functions.js"></script>
+<link href='styles/screen.css' rel='stylesheet' type='text/css'/>
+<script type="text/javascript" src="scripts/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="scripts/bootstrap-alerts.js"></script>
+<script type="text/javascript" src="scripts/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="scripts/functions.js"></script>
 </head>
 <body>
 <div class="topbar">
