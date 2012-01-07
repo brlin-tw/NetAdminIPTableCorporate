@@ -19,7 +19,7 @@ if(!isUser()){
         break;
     
     case '新增管理員':
-        if (validateUser()) {
+        if (validateUser($link)) {
             $username = mysql_real_escape_string($_POST["new_account_name"]);
             $password = mysql_real_escape_string($_POST["new_account_password"]);
             $password_again = mysql_real_escape_string($_POST["new_account_password_check"]);
@@ -37,7 +37,7 @@ if(!isUser()){
         break;
     
     case '刪除管理員':
-        if (validateUser()){
+        if (validateUser($link)){
             $username = mysql_real_escape_string($_POST["new_account_name"]);
             $query = "DELETE FROM users WHERE name=\"$username\"";
             setFlash(htmlspecialchars($username)." 已經刪除", "success");
@@ -70,7 +70,7 @@ echo "<script type='text/javascript'>";
 echo "window.location='index.php';";
 echo "</script>";
 
-function validateUser() {
-    return isSuperUser() && user_account_check($_POST["account_name"], $_POST["account_password"]) == $_SESSION['userName'];
+function validateUser($link) {
+    return isSuperUser() && user_account_check($_POST["account_name"], $_POST["account_password"], $link) == $_SESSION['userName'];
 }
 ?>

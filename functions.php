@@ -21,8 +21,13 @@ function isSuperUser($username = null) {
             $username == "medicalwei");
 }
 
-function user_account_check($username, $password){
-    $link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD) or die("無法與MySQL建立連線");
+function user_account_check($username, $password, $haveLink = null){
+    /* create a link if there's no one */
+    if ($haveLink == null) {
+        $link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD) or die("無法與MySQL建立連線");
+    } else {
+        $link = $haveLink;
+    }
 
     $username_escaped = mysql_real_escape_string($username);
     $password_escaped = mysql_real_escape_string($password);
@@ -37,7 +42,9 @@ function user_account_check($username, $password){
         $r = false;
     }
 
-    mysql_close($link);
+    if ($haveLink == null) {
+        mysql_close($link);
+    }
 
     return $r;
 }
