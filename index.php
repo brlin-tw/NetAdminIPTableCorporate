@@ -15,7 +15,7 @@
         <thead>
             <tr>
                 <th>IP位址</th>
-                <th>有無被設定</th>
+                <th>有無被使用</th>
                 <th>機器功能</th>
                 <th>使用的連接埠</th>
                 <th>負責人</th>
@@ -27,7 +27,7 @@
                 $link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD) or die("無法與MySQL建立連線");
                 mysql_select_db(MYSQL_DATABASE);
                 $result = mysql_query("select * from ips");
-                
+
                 for ( $counter = 0; $row = mysql_fetch_row( $result ); $counter++)
                 {
                     $ipaddr = htmlspecialchars($row[0]);//ip
@@ -36,34 +36,34 @@
                     $ports = htmlspecialchars($row[3]);//ports
                     $owner = htmlspecialchars($row[4]);//owner
                     $place = htmlspecialchars($row[5]);//place
-    		
+
     		if($used == 0)
     		    continue;
 
                     print( '<tr>' );
                         print( "<td>$ipaddr</td>" );
-                        print( "<td>有人用</td>" );
-                        
+                        print( "<td>已被設定</td>" );
+
                         if(is_null($func))
                             print( "<td >無功能資料</td>" );
                         else
-                            print( "<td>$func</td>" );            
-                            
+                            print( "<td>$func</td>" );
+
                         if(is_null($ports))
-                            print( "<td>無port資料</td>" );
+                            print( "<td>無連接埠(port)資料</td>" );
                         else
                             print( "<td>$ports</td>" );
-                            
+
                         if(is_null($owner))
-                            print( "<td>無使用者資料</td>" );
+                            print( "<td>無負責人資料</td>" );
                         else
                             print( "<td>$owner</td>" );
 
     		    if(is_null($place))
-                            print( "<td>無放置位址資料</td>" );
+                            print( "<td>無放置地點資料</td>" );
                         else
-                            print( "<td>$place</td>" );   
-                        
+                            print( "<td>$place</td>" );
+
                     print( '</tr>');
                 }
                 mysql_close($link);
