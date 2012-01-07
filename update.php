@@ -4,9 +4,6 @@ include_once("functions.php");
 if(!isUser()){
     setFlash("請登入", "error");
 } else {
-    $link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD) or die("無法與MySQL建立連線");
-    mysql_select_db(MYSQL_DATABASE); 
-    
     switch ($_POST["submit"]){
     case '修改機器': case '加入機器':
         $ip = mysql_real_escape_string($_POST["IP_last_4_digits"]);
@@ -57,10 +54,14 @@ if(!isUser()){
         break;
     }
     
-    $result = mysql_query($query);
-    
-    if(!$result) {
-        setFlash("<strong>資料庫操作失敗</strong> — 這種錯誤不應該發生，請聯絡管理員", "error");
+    if(isset($query)) {
+        $link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD) or die("無法與MySQL建立連線");
+        mysql_select_db(MYSQL_DATABASE); 
+        $result = mysql_query($query);
+        
+        if(!$result) {
+            setFlash("<strong>資料庫操作失敗</strong> — 這種錯誤不應該發生，請聯絡管理員", "error");
+        }
     }
     
     mysql_close($link);

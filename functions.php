@@ -24,12 +24,14 @@ function isSuperUser($username) {
 function user_account_check($username, $password){
     $username_escaped = mysql_real_escape_string($username);
     $password_escaped = mysql_real_escape_string($password);
-
     $query = "SELECT passwd FROM users WHERE name=\"$username_escaped\" AND passwd=\"$password_escaped\"";
+
+    $link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD) or die("無法與MySQL建立連線");
+    mysql_select_db(MYSQL_DATABASE); 
     $result = mysql_query($query);
 
     if ($result && mysql_num_rows($result) > 0) {
-        return username;
+        return $username;
     } else {
         return false;
     }
