@@ -9,3 +9,7 @@ settings.php
 
 #vim建立的.viminfo檔案
 .viminfo
+
+#排除備份檔
+.*~
+
