@@ -6,3 +6,6 @@ settings.php
 
 #KDE dolphin設定檔
 .directory
+
+#vim
+.viminfo
