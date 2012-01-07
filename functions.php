@@ -8,8 +8,8 @@ function isUser() {
     return isset($_SESSION['loginOK']) && $_SESSION['loginOK'];
 }
 
-function isSuperUser($username) {
-    if(!isset($username)) {
+function isSuperUser($username = null) {
+    if($username == null) {
         if(isUser()) {
             $username = $_SESSION['userName'];
         } else {
