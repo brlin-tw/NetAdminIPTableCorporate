@@ -1,4 +1,4 @@
-#
+#用來自動執行git push
 pushTrigger.php
 
 #保存資料庫密碼
@@ -7,5 +7,5 @@ settings.php
 #KDE dolphin設定檔
 .directory
 
-#vim
+#vim建立的.viminfo檔案
 .viminfo
