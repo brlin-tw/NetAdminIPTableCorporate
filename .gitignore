@@ -12,4 +12,4 @@ settings.php
 
 #排除備份檔
 .*~
-
+*.swp
