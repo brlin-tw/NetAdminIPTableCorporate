@@ -24,7 +24,7 @@ function isSuperUser($username = null) {
 function user_account_check($username, $password, $haveLink = null){
     /* create a link if there's no one */
     if ($haveLink == null) {
-        $link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD) or die("您瀏覽的網頁因為「無法與MySQL伺服器建立連線」原因無法正常運作，請稍候再試，如果仍無法正常運作請聯絡網站管理人員處理。");
+        $link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD) or die("您瀏覽的網頁因為「網頁伺服器無法與MySQL伺服器建立連線」原因無法正常運作，請稍候再試，如果仍無法正常運作請聯絡網站管理人員處理。");
     } else {
         $link = $haveLink;
     }
@@ -68,4 +68,3 @@ function getFlash($drop = true) {
     return $flashMessage;
 }
 
-?>
