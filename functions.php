@@ -33,7 +33,7 @@ function user_account_check($username, $password){
     if ($result && mysql_num_rows($result) > 0) {
         $r = username;
     } else {
-        $r = false
+        $r = false;
     }
 
     mysql_close($link);
