@@ -26,7 +26,7 @@ function user_account_check($username, $password){
     $password_escaped = mysql_real_escape_string($password);
     $query = "SELECT passwd FROM users WHERE name=\"$username_escaped\" AND passwd=\"$password_escaped\"";
 
-    $link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD) or die("無法與MySQL建立連線");
+    $link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD) or die("無法與MySQL伺服器建立連線，請稍候再試，如果仍無法正常運作請聯絡網站管理人員處理。");
     mysql_select_db(MYSQL_DATABASE); 
     $result = mysql_query($query);
 

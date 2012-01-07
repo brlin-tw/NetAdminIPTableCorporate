@@ -1,11 +1,12 @@
-<?php include_once ("functions.php"); ?>
-<?php print ('<?xml version="1.0" encoding="utf-8"?>'); ?>
+<?php 
+include_once ("functions.php");
+print ('<?xml version="1.0" encoding="utf-8"?>'); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh_TW" lang="zh_TW">
 <head>
 <title><?php print($title);?> | IP Manager</title>
-<meta name="author" content="國立海洋大學資訊工程學系 B97570146 楊力維, 09957010 林博仁" />
+<meta name="author" content="國立海洋大學資訊工程學系 B97570146 楊力維、09957010 林博仁、Ming-Ting Wei" />
 <meta name="description" content="適用於網路管理者的IP位址表" />
 <meta name="generator" content="Vim" />
 <meta name="keywords" content="IP位址表" />
@@ -21,10 +22,10 @@
     
       <?php if (isUser()):?>
         <ul class="nav">
-          <li><a href="new.php">新增IP</a></li>
-          <li><a href="edit.php">修改IP</a></li>
+          <li><a href="new.php">新增IP設定</a></li>
+          <li><a href="edit.php">修改IP設定</a></li>
           <?php if (isSuperUser()): ?>
-          <li><a href="admin.php">新增/刪除帳號</a></li>
+          <li><a href="admin.php">新增/刪除管理員帳號</a></li>
           <?php endif; ?>
         </ul>
       <?php endif; ?>
