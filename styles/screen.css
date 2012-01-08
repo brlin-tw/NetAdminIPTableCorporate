@@ -1,5 +1,11 @@
+@charset 'UTF-8';
+/*import Ubuntu web font*/
+@import url('http://fonts.googleapis.com/css?family=Ubuntu');
+
+/*import Bootstrap, from Twitter*/
 @import url("bootstrap.min.css");
 
 body {
+  font-family: 'Ubuntu', 'sans-serif';
   padding-top: 60px;
 }
