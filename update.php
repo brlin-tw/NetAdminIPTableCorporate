@@ -12,9 +12,12 @@ if(!isUser()){
         $ip = mysql_real_escape_string($_POST["IP_last_4_digits"]);
         $feature = mysql_real_escape_string($_POST["machine_feature"]);
         $ports = mysql_real_escape_string($_POST["machine_ports"]);
-        $owner = mysql_real_escape_string($_POST["machine_owner"]);
+        $owner = isSuperUser() ? mysql_real_escape_string($_POST["machine_owner"]):$_SESSION['userName'];
         $location = mysql_real_escape_string($_POST["machine_location"]);
         $query = 'UPDATE ips SET used=1,func="'.$feature.'",ports="'.$ports.'",owner="'.$owner.'",place="'.$location.'" WHERE ip="'.$ip.'"';
+        if (!isSuperUser()) {
+            $query .= " AND (used=0 OR owner=\"$owner\")";
+        }
         setFlash (htmlspecialchars($ip)." 已經修改", "success");
         break;
     
