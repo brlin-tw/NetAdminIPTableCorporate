@@ -29,7 +29,7 @@ if(!isUser()){
             $email = mysql_real_escape_string($_POST["new_account_mail"]);
             $phone = mysql_real_escape_string($_POST["new_account_phone"]);
             if($_POST["new_account_password"] == $_POST["new_account_password"]) {
-		$password = sha1(SALT.$_POST["new_account_password"]);
+		$password = crypt($_POST["new_account_password"], SALT);
                 $query = "INSERT INTO users VALUES (\"$username\",\"$password\",\"$email\",\"$phone\")";
                 setFlash(htmlspecialchars($username)." 已經新增", "success");
             } else {
