@@ -24,11 +24,12 @@ if(!isUser()){
     case '新增管理員':
         if (validateUser($link)) {
             $username = mysql_real_escape_string($_POST["new_account_name"]);
-            $password = mysql_real_escape_string($_POST["new_account_password"]);
+            $_POST["new_account_password"];
             $password_again = mysql_real_escape_string($_POST["new_account_password_check"]);
             $email = mysql_real_escape_string($_POST["new_account_mail"]);
             $phone = mysql_real_escape_string($_POST["new_account_phone"]);
-            if($password == $password_again) {
+            if($_POST["new_account_password"] == $_POST["new_account_password"]) {
+		$password = sha1(SALT.$_POST["new_account_password"]);
                 $query = "INSERT INTO users VALUES (\"$username\",\"$password\",\"$email\",\"$phone\")";
                 setFlash(htmlspecialchars($username)." 已經新增", "success");
             } else {

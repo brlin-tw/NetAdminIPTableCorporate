@@ -30,7 +30,7 @@ function user_account_check($username, $password, $haveLink = null){
     }
 
     $username_escaped = mysql_real_escape_string($username);
-    $password_escaped = mysql_real_escape_string($password);
+    $password_escaped = mysql_real_escape_string(sha1(SALT.$password));
     $query = "SELECT passwd FROM users WHERE name=\"$username_escaped\" AND passwd=\"$password_escaped\"";
 
     mysql_select_db(MYSQL_DATABASE);
