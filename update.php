@@ -12,20 +12,24 @@ if(!isUser()){
         $ip = mysql_real_escape_string($_POST["IP_last_4_digits"]);
         $feature = mysql_real_escape_string($_POST["machine_feature"]);
         $ports = mysql_real_escape_string($_POST["machine_ports"]);
-        $owner = mysql_real_escape_string($_POST["machine_owner"]);
+        $owner = isSuperUser() ? mysql_real_escape_string($_POST["machine_owner"]):$_SESSION['userName'];
         $location = mysql_real_escape_string($_POST["machine_location"]);
         $query = 'UPDATE ips SET used=1,func="'.$feature.'",ports="'.$ports.'",owner="'.$owner.'",place="'.$location.'" WHERE ip="'.$ip.'"';
+        if (!isSuperUser()) {
+            $query .= " AND (used=0 OR owner=\"$owner\")";
+        }
         setFlash (htmlspecialchars($ip)." 已經修改", "success");
         break;
     
     case '新增管理員':
         if (validateUser($link)) {
             $username = mysql_real_escape_string($_POST["new_account_name"]);
-            $password = mysql_real_escape_string($_POST["new_account_password"]);
+            $_POST["new_account_password"];
             $password_again = mysql_real_escape_string($_POST["new_account_password_check"]);
             $email = mysql_real_escape_string($_POST["new_account_mail"]);
             $phone = mysql_real_escape_string($_POST["new_account_phone"]);
-            if($password == $password_again) {
+            if($_POST["new_account_password"] == $_POST["new_account_password"]) {
+		$password = crypt($_POST["new_account_password"], SALT);
                 $query = "INSERT INTO users VALUES (\"$username\",\"$password\",\"$email\",\"$phone\")";
                 setFlash(htmlspecialchars($username)." 已經新增", "success");
             } else {
@@ -59,8 +63,8 @@ if(!isUser()){
     
     if(isset($query)) {
         $result = mysql_query($query);
-        if(!$result) {
-            setFlash("<strong>資料庫操作失敗</strong> — 這種錯誤不應該發生，請聯絡管理員", "error");
+        if(!$result || mysql_affected_rows($result) == 0) {
+            setFlash("<strong>資料庫操作失敗</strong> — 資料沒有更動。", "error");
         }
     }
     mysql_close($link);
