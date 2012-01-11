@@ -24,15 +24,15 @@
 <form action='check.php' method='post'>
   <fieldset>
     <div class="clearfix">
-      <label for="account_name">帳號</label>
+      <label for="account_name">帳號名稱</label>
       <div class="input">
-      <input type='text' name='account_name' size='30' maxlength='20' />
+        <input type='text' id='account_name' name='account_name' size='30' maxlength='20' />
       </div>
     </div>
     <div class="clearfix">
-      <label for="account_password">密碼</label>
+      <label for="account_password">帳號密碼</label>
       <div class="input">
-      <input type='password' name='account_password' size='30' maxlength='30' />
+        <input type='password' id='account_password' name='account_password' size='30' maxlength='30' />
       </div>
     </div>
     <div class='actions'>
