@@ -9,7 +9,7 @@
       專案原始開發者：國立海洋大學資訊工程學系 B97570146 楊力維、09957010 林博仁、B97570013 魏銘廷<br />
       如有任何問題歡迎<a href='mailto:pika1021@gmail.com'>來信指教</a><br />
       專案說明文件：<a href='meta/Manual/Project_manual.odp'>Open Document格式</a>（Open Document格式文件可以透過可免費下載使用的<a href='http://www.libreoffice.org/' target='_blank'>LibreOffice文書處理軟體</a>檢視以及編輯） | <a href='meta/Manual/Project_manual.pdf'>PDF格式</a><br />
-      「適用於網路管理者的 IP 位址表」為開放原始碼專案，歡迎任何人至<a href='https://github.com/Vdragon/NetAdminIPTableCorporate/' target='_blank'>github</a>獲取全部的原始程式碼、修改、重新發佈或是參與這個專案（包括但不限於加入程式開發、回報問題、提供建議、美化介面等等），讓它變得更加完美！
+      「適用於網路管理者的 IP 位址表」為開放原始碼專案，歡迎任何人在遵守<a href='http://www.gnu.org/copyleft/gpl.html' target='_blank'>GNU GPL授權協議</a>的前提下至<a href='https://github.com/Vdragon/NetAdminIPTableCorporate/' target='_blank'>GitHub</a>獲取全部的原始程式碼、修改、重新發佈或是直接參與這個專案（包括但不限於加入程式開發、回報問題、提供建議、美化介面等等），讓它變得更加完美！
     </p>
   </div>
 </div>
