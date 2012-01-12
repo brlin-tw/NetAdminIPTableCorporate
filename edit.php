@@ -1,4 +1,7 @@
 <?php
+  /*include settings.php*/
+  include_once("settings.php");
+
   include_once ("functions.php");
 
   if(!isUser()) {
@@ -28,10 +31,10 @@
       <select name='IP_last_4_digits'>
         <?php
         /* 產生使用中的 IP */
-        $link = mysql_connect("localhost","iper","ipDBuse") or die("無法與MySQL建立連線");
-        mysql_select_db("iptable");
+        $link = mysql_connect("MYSQL_LOCATION","MYSQL_USERNAME","MYSQL_PASSWORD") or die("無法與MySQL建立連線");
+        mysql_select_db("MYSQL_DATABASE");
         $result = mysql_query("select * from ips");
-        
+
         for ( $counter = 0; $row = mysql_fetch_row( $result ); $counter++)
         {
           $ipaddr = $row[0];
@@ -49,26 +52,26 @@
     <div class="clearfix">
       <label for="machine_feature">機器功能</label>
       <div class="input">
-      <input type='text' name='machine_feature' size='20' maxlength='50' value="web server"/>
+      <input type='text' id='machine_feature' name='machine_feature' size='20' maxlength='50' value="web server"/>
       </div>
     </div>
     <div class="clearfix">
       <label for="machine_ports">使用的連接埠</label>
       <div class="input">
-      <input type='text' name='machine_ports' size='20' maxlength='50' value="80"/>
+      <input type='text' id='machine_ports' name='machine_ports' size='20' maxlength='50' value="80"/>
       </div>
     </div>
     <div class="clearfix">
       <label for="machine_owner">負責人</label>
       <div class="input">
       <?php if(isSuperUser()): ?>
-      <select name='machine_owner'>
+      <select id='machine_owner' name='machine_owner'>
         <?php
         /* 產生使用者清單 */
         $link = mysql_connect("localhost","iper","ipDBuse") or die("無法與MySQL建立連線");
         mysql_select_db("iptable");
         $result = mysql_query("select name from users");
-        
+
         for ( $counter = 0; $row = mysql_fetch_row( $result ); $counter++)
         {
           $userName = $row[0];//ip
@@ -93,7 +96,7 @@
     <div class="clearfix">
       <label for="machine_location">機器所在位置</label>
       <div class="input">
-      <input type='text' name='machine_location' size='20' maxlength='50' value="no idea"/>
+      <input type='text' id='machine_location' name='machine_location' size='20' maxlength='50' value="no idea"/>
       </div>
     </div>
     <div class="actions">
