@@ -31,7 +31,7 @@
       <select name='IP_last_4_digits'>
         <?php
         /* 產生使用中的 IP */
-        $link = mysql_connect("MYSQL_LOCATION","MYSQL_USERNAME","MYSQL_PASSWORD") or die("無法與MySQL建立連線");
+        $link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD) or die("無法與MySQL建立連線");
         mysql_select_db("MYSQL_DATABASE");
         $result = mysql_query("select * from ips");
 
