@@ -35,7 +35,7 @@
       <select name='IP_last_4_digits'>
         <?php
         /* 產生使用中的 IP */
-        $result = mysql_query("select * from ips")
+        $result = mysql_query("select * from ips");
 
         for ( $counter = 0; $row = mysql_fetch_row( $result ); $counter++)
         {
