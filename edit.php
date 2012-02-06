@@ -32,8 +32,8 @@
         <?php
         /* 產生使用中的 IP */
         $link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD) or exit("無法與MySQL建立連線");
-        mysql_select_db("MYSQL_DATABASE");
-        if($result = mysql_query("select name from users") == FALSE){
+        mysql_select_db(MYSQL_DATABASE);
+        if($result = mysql_query("select * from ips") == FALSE){
           exit("</select><br />發生錯誤：mysql_query()查詢失敗。<br />");
         }
 
