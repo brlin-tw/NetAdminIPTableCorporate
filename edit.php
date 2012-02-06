@@ -36,9 +36,6 @@
         <?php
         /* 產生使用中的 IP */
         $result = mysql_query("select * from ips")
-        if(!$result){
-          exit("</select><br />發生錯誤：mysql_query()查詢失敗。<br />");
-        }
 
         for ( $counter = 0; $row = mysql_fetch_row( $result ); $counter++)
         {
@@ -74,9 +71,6 @@
         /* 產生使用者清單 */
         mysql_select_db("iptable");
         $result = mysql_query("select name from users");
-        if(!$result){
-          exit("<br />發生錯誤：mysql_query()查詢失敗。<br />");
-        }
         
         for ( $counter = 0; $row = mysql_fetch_row( $result ); $counter++)
         {
