@@ -14,3 +14,7 @@ The appearance of the site is made of [Bootstrap, from Twitter](http://twitter.g
 * [infate](http://github.com/infate)
 * [medicalwei](http://github.com/medicalwei)
 * [Vdragon](http://github.com/Vdragon)
+
+授權條款 | Licensing
+----
+本專案採用 General Public License 3 或更新版本
