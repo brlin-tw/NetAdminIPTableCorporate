@@ -5,8 +5,6 @@
   $page = "home";
   include ("header.php");
   extract($_GET);
-  print($ID);
-  print($time);
 ?>
 <h1 id="dheading" class='a'>回覆的留言</h1>
 	<div class="container">
@@ -21,10 +19,9 @@
 			<?php
 				if(!($link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD)))
 				die("cannot link database");
-				//mysql_select_db($d, $link);
 				if(!(mysql_select_db(MYSQL_DATABASE)))
 				die("cannot open db");
-				
+				mysql_set_charset("utf8", $link);
 				$result = mysql_query("select * from feedback");
 				if(!($result))
 				{print("can't execute");}

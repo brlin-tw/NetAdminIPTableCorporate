@@ -7,6 +7,7 @@
 
 	if(!(mysql_select_db(MYSQL_DATABASE, $link)))
 		die("cannot open db");
+		mysql_set_charset("utf8", $link);		
 	$dt=date("Y-m-d h:i:s");
 	if(!$ins)
 	$result = mysql_query("insert into messager (ID,time) values('$nam','$dt')");

@@ -1,16 +1,14 @@
 <?php
 	include_once ("functions.php");
 	include ("header.php");
-	$d = "test";
 	extract($_POST);
 
 	if(!($link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD)))
 	die("cannot link database");
-	//mysql_select_db($d, $link);
-	if(!(mysql_select_db($d, $link)))
+	if(!(mysql_select_db(MYSQL_DATABASE, $link)))
 	die("cannot open db");
+	mysql_set_charset("utf8", $link);
 	$dt=date("Y-m-d h:i:s");
-	//print($nam);
 	if(!$ins)
 	$result = mysql_query("insert into feedback (ID,reply_id,time,reply_time) values('$nam','$re_nam','$dt','$re_time')");
 	else

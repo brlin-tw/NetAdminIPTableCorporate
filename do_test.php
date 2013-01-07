@@ -1,7 +1,6 @@
 <?php
 	include_once ("functions.php");
 	include ("header.php");
-	$d = "test";
 	extract($_POST);
 ?>
 <?php		
@@ -10,8 +9,7 @@
 mysql_query ("SET NAMES 'utf8'");	
 	if(!($link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD)))
 	die("cannot link database");
-	//mysql_select_db($d, $link);
-	if(!(mysql_select_db($d, $link)))
+	if(!(mysql_select_db(MYSQL_DATABASE, $link)))
 	die("cannot open db");
 	print('$nam');print('$time');
 	$result = mysql_query("UPDATE messager SET message='$ins' WHERE ID='$nam' and time='$time'");

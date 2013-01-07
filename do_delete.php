@@ -1,12 +1,12 @@
 <?php
 	include_once ("functions.php");
 	include ("header.php");
-	$d = "test";
 	extract($_GET);
 	if(!($link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD)))
 		die("cannot link database");
-	if(!(mysql_select_db($d, $link)))
+	if(!(mysql_select_db(MYSQL_DATABASE, $link)))
 		die("cannot open db");
+		mysql_set_charset("utf8", $link);
 		$result = mysql_query("select * from feedback");
 				if(!($result))
 				{print("can't execute");}

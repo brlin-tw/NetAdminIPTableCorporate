@@ -18,10 +18,9 @@
 		<?php
 			if(!($link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD)))
 			die("cannot link database");
-			//mysql_select_db($d, $link);
 			if(!(mysql_select_db(MYSQL_DATABASE)))
 			die("cannot open db");
-			
+			mysql_set_charset("utf8", $link);
 			$result = mysql_query("select * from messager");
 			if(!($result))
 			{print("can't execute");}
