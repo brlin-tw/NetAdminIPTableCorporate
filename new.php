@@ -10,7 +10,7 @@
     exit;
   }
 
-  $title = "新增IP";
+  $title = "新增 IP 地址設定";
   $page = "new";
   include ("header.php");
 ?>
@@ -18,7 +18,7 @@
 <div class='container'>
 <div class='row'>
 <div class='span4'>
-<h1>新增IP</h1>
+<h1><?php echo $title ?></h1>
 </div>
 <div class='span12'>
 <form action='update.php' method='post'>
