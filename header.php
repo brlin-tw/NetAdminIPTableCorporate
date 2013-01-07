@@ -37,6 +37,7 @@
 <?php endif; ?>
 			
 				<ul class="nav secondary-nav">
+					<li><a href="messenger.php">留言板</a></li>
 <?php if (isUser()):?>
 					<li><a href="logout.php">登出 <?php htmlspecialchars(print($_SESSION['userName']))?></a></li>
 <?php else: ?>
