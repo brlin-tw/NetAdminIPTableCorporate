@@ -35,10 +35,10 @@ function user_account_check($username, $password, $haveLink = null){
     mysql_select_db(MYSQL_DATABASE);
     $result = mysql_query($query);
 
-    $r = false;
+    $ret = false;
     if (mysql_num_rows($result) == 1 && $password_hashed = mysql_result($result, 0)){
 			if (crypt($password, $password_hashed) == $password_hashed){
-							$r = $username;
+							$ret = $username;
 			}
     }
 
@@ -46,7 +46,7 @@ function user_account_check($username, $password, $haveLink = null){
         mysql_close($link);
     }
 
-    return $r;
+    return $ret;
 }
 
 function setFlash($message, $type = "warning") {
