@@ -14,6 +14,10 @@
 
   $title = "修改IP";
   $page = "edit";
+
+  $link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD) or exit("無法與MySQL建立連線");
+  mysql_select_db(MYSQL_DATABASE);
+
   include ("header.php");
 ?>
 
@@ -37,7 +41,7 @@
         if($result = mysql_query("select name from users") == FALSE){
           exit("</select><br />發生錯誤：mysql_query()查詢失敗。<br />");
         }
-
+        
         for ( $counter = 0; $row = mysql_fetch_row( $result ); $counter++)
         {
           $ipaddr = $row[0];
@@ -47,7 +51,6 @@
   	  	print('<option value="'.htmlspecialchars($ipaddr).'">'.htmlspecialchars($ipaddr).'</option>');
   	  }
         }
-        mysql_close($link);
         ?>
       </select>
       </div>
@@ -71,12 +74,13 @@
       <select id='machine_owner' name='machine_owner'>
         <?php
         /* 產生使用者清單 */
+<<<<<<< HEAD
         $link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD) or exit("<option></option></select>"."您瀏覽的網頁因為「Web伺服器無法與MySQL資料庫伺服器建立連線」原因無法正常顯示，請您稍候再嘗試瀏覽，如果仍沒有恢復正常請連繫網站管理員<a href='mailto:pika1021@gmail.com' >pika1021@gmail.com</a>處理。造成您的不便非常抱歉。"."</div></div></fieldset></form></div></div></div></body></html>");
 				mysql_set_charset("utf8", $link);
+=======
+>>>>>>> e7dbcfbe242d638673c2b399a3a55009664c54e8
         mysql_select_db("iptable");
-        if($result = mysql_query("select name from users") == FALSE){
-          exit("<br />發生錯誤：mysql_query()查詢失敗。<br />");
-        }
+        $result = mysql_query("select name from users");
         
         for ( $counter = 0; $row = mysql_fetch_row( $result ); $counter++)
         {
@@ -89,7 +93,6 @@
             print('<option value="'.$userName.'">'.$userName.'</option>');
           }
         }
-        mysql_close($link);
         ?>
       </select>
       <?php else: ?>
@@ -115,4 +118,7 @@
 </div>
 </div>
 </div>
-<?php include ("footer.php"); ?>
+<?php 
+  include ("footer.php");
+  mysql_close($link);
+?>

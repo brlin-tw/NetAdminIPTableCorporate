@@ -12,6 +12,10 @@
 
   $title = "新增 IP 地址設定";
   $page = "new";
+
+  $link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD) or exit("無法與MySQL建立連線");
+  mysql_select_db(MYSQL_DATABASE);
+
   include ("header.php");
 ?>
 
@@ -42,7 +46,6 @@
     	    	print('<option value="'.htmlspecialchars($ipaddr).'">'.htmlspecialchars($ipaddr).'</option>');
     	    }
     	}
-    	mysql_close($link);
     	?>
       </select>
       </div>
@@ -66,8 +69,6 @@
       <select name='machine_owner'>
         <?php
         /* 產生使用者清單 */
-        $link = mysql_connect("localhost","iper","ipDBuse") or die("無法與MySQL建立連線");
-        mysql_select_db("iptable");
         $result = mysql_query("select name from users");
         
         for ( $counter = 0; $row = mysql_fetch_row( $result ); $counter++)
@@ -81,7 +82,6 @@
             print('<option value="'.$userName.'">'.$userName.'</option>');
           }
         }
-        mysql_close($link);
         ?>
       </select>
       <?php else: ?>
@@ -106,4 +106,7 @@
 </div>
 </div>
 </div>
-<?php include ("footer.php"); ?>
+<?php 
+  include ("footer.php"); 
+  mysql_close($link);
+?>
