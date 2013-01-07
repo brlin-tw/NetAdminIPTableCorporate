@@ -1,14 +1,11 @@
 <?php
 	include_once ("functions.php");
 	include ("header.php");
-	$d = "test";
 	extract($_POST);
-	echo $nam."<br />".PHP_EOL.
-				$ins."<br />".PHP_EOL;
 	if(!($link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD)))
 		die("cannot link database");
 
-	if(!(mysql_select_db($d, $link)))
+	if(!(mysql_select_db(MYSQL_DATABASE, $link)))
 		die("cannot open db");
 	$dt=date("Y-m-d h:i:s");
 	if(!$ins)
