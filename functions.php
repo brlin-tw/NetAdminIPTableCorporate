@@ -37,9 +37,9 @@ function user_account_check($username, $password, $haveLink = null){
 
     $r = false;
     if (mysql_num_rows($result) == 1 && $password_hashed = mysql_result($result, 0)){
-	if (crypt($password, $password_hashed) == $password_hashed){
-          $r = $username;
-	}
+			if (crypt($password, $password_hashed) == $password_hashed){
+							$r = $username;
+			}
     }
 
     if ($haveLink == null) {
