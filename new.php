@@ -29,8 +29,8 @@
       <select name='IP_last_4_digits'>
         <?php
         /* 產生未使用的 IP */
-    	$link = mysql_connect("localhost","iper","ipDBuse") or die("無法與MySQL建立連線");
-    	mysql_select_db("iptable");
+    	$link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD) or die("無法與MySQL建立連線");
+    	mysql_select_db(MYSQL_DATABASE);
     	$result = mysql_query("select * from ips");
     	
     	for ( $counter = 0; $row = mysql_fetch_row( $result ); $counter++)
