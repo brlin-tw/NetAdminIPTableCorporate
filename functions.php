@@ -18,7 +18,8 @@ function isSuperUser($username = null) {
     }
 
     return ($username == "infate" ||
-            $username == "medicalwei");
+            $username == "medicalwei" || 
+            $username == "Vdragon");
 }
 
 function user_account_check($username, $password, $haveLink = null){
