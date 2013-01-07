@@ -25,11 +25,14 @@
 			$result = mysql_query("select * from messager");
 			if(!($result))
 			{print("can't execute");}
+			
 			while($e=mysql_fetch_row($result))
 			{
 				print("<tr><td><a href='feedback.php?ID=$e[0]&time=$e[2]'>$e[0]</a></td>");
 				print("<td>$e[1]</td>");
-				print("<td>$e[2]</td></tr>");
+				print("<td>$e[2]</td>");
+				print("<td><a href='fix.php?ID=$e[0]&message=$e[1]&time=$e[2]'>修改</a></td>");
+				print("<td><a href='do_delete.php?ID=$e[0]&message=$e[1]&time=$e[2]'>刪除</a></td></tr>");
 			}
 		?>
 		</table>
@@ -49,7 +52,7 @@
 						</tr>
 					<?php }else{?>
 					<tr>
-						<td>名字:<input type = "text" id="nam" name='nam' size = "20" maxlength = "20" /></td>
+						<td>名字:<input type = "text" id="nam" name='nam' size = "20" maxlength = "20" value = "x"/></td>
 					</tr>
 					<tr>
 						<td>留言:<input type = "text" id="ins" name='ins' size = "100" maxlength = "100" /></td>

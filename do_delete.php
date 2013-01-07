@@ -2,19 +2,20 @@
 	include_once ("functions.php");
 	include ("header.php");
 	$d = "test";
-	extract($_POST);
-	echo $nam."<br />".PHP_EOL.
-				$ins."<br />".PHP_EOL;
+	extract($_GET);
 	if(!($link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD)))
 		die("cannot link database");
-
 	if(!(mysql_select_db($d, $link)))
 		die("cannot open db");
-	$dt=date("Y-m-d h:i:s");
-	if(!$ins)
-	$result = mysql_query("insert into messager (ID,time) values('$nam','$dt')");
-	else
-	$result = mysql_query("insert into messager (ID,message,time) values('$nam','$ins','$dt')");
+		$result = mysql_query("select * from feedback");
+				if(!($result))
+				{print("can't execute");}
+				while($e=mysql_fetch_row($result)){
+					if($e[1] == $ID && $e[4] == $time){
+						$result = mysql_query("delete from feedback where reply_ID = '$ID' and reply_time = '$time'");
+					}
+				}
+	$result = mysql_query("delete from messager where ID = '$ID' and time = '$time'");
 	if($result == FALSE)
 		{print("can't execute");}
 	else

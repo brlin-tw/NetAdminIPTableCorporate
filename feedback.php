@@ -32,7 +32,9 @@
 					if($e[1] == $ID && $e[4] == $time){
 						print("<tr><td>$e[0]</td>");
 						print("<td>$e[2]</td>");
-						print("<td>$e[3]</td></tr>");
+						print("<td>$e[3]</td>");
+						print("<td><a href='fix_feedback.php?ID=$e[0]&message=$e[1]&time=$e[2]'>修改</a></td>");
+						print("<td><a href='do_delete_feedback.php?ID=$e[0]&re_ID=$e[1]&message=$e[2]&time=$e[3]&re_time=$e[4]'>刪除</a></td></tr>");
 					}
 				}
 			?>
