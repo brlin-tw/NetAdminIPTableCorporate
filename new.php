@@ -32,21 +32,21 @@
       <div class="input">
       <select name='IP_last_4_digits'>
         <?php
-        /* 產生未使用的 IP */
-    	$link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD) or die("無法與MySQL建立連線");
-    	mysql_select_db(MYSQL_DATABASE);
-    	$result = mysql_query("select * from ips");
-    	
-    	for ( $counter = 0; $row = mysql_fetch_row( $result ); $counter++)
-    	{
-    	    $ipaddr = $row[0];//ip
-    	    $used = $row[1];//used
-    	    if(!$used)
-    	    {
-    	    	print('<option value="'.htmlspecialchars($ipaddr).'">'.htmlspecialchars($ipaddr).'</option>');
-    	    }
-    	}
-    	?>
+					/* 產生未使用的 IP */
+					$link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD) or die("無法與MySQL建立連線");
+					mysql_select_db(MYSQL_DATABASE);
+					$result = mysql_query("select * from ips");
+					
+					for ( $counter = 0; $row = mysql_fetch_row( $result ); $counter++)
+					{
+						$ipaddr = $row[0];//ip
+						$used = $row[1];//used
+						if(!$used)
+						{
+							print('<option value="'.htmlspecialchars($ipaddr).'">'.htmlspecialchars($ipaddr).'</option>');
+						}
+					}
+				?>
       </select>
       </div>
     </div>
