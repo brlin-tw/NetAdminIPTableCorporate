@@ -2,7 +2,7 @@
   include_once ("functions.php");
 
   if(!isSuperUser()) {
-    setFlash("請使用管理者帳號登入", "error");
+    setFlash("請使用管理者帳號登入後才能使用本功能", "error");
     echo '<script type="text/javascript">';
     echo " window.location='index.php';";
     echo "</script>";
