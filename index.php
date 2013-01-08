@@ -6,16 +6,25 @@
 	include ("header.php");
 ?>
 
+
 <div class="container">
 	<div id='ip_table'>
 		<div class="page-header">
 		<h1>140.121.80.0/24 <small>IP 配置狀態</small></h1>
 		</div>
-		
+<?php
+	$link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD) or  die("無法與MySQL建立連線");
+	mysql_set_charset("utf8", $link);
+	mysql_select_db(MYSQL_DATABASE);
+	$result = mysql_query("fselect * from ips");
+	if($result == false){
+		echo "資料庫查詢失敗，請聯絡系統管理人員處理。".PHP_EOL;
+	}else{
+?>
 		<table>
 			<thead>
 				<tr>
-					<th>IP位址</th>
+					<th>IP地址</th>
 					<th>有無被使用</th>
 					<th>機器用途</th>
 					<th>使用的連接埠</th>
@@ -24,12 +33,7 @@
 				</tr>
 			</thead>
 			<tbody>
-<?php
-	$link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD) or  die("無法與MySQL建立連線");
-	mysql_set_charset("utf8", $link);
-	mysql_select_db(MYSQL_DATABASE);
-	$result = mysql_query("select * from ips");
-
+<?php 
 	for ( $i = 0; $row = mysql_fetch_row( $result ); $i++){
 	
 		$ipaddr = htmlspecialchars($row[0]);//ip
@@ -94,8 +98,7 @@
 				</tr>
 <?php
 	}
-?>				
-<?php
+	}
 	mysql_close($link);
 ?>
 			</tbody>
