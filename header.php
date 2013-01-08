@@ -27,10 +27,10 @@
 
 <?php if (isUser()):?>
 				<ul class="nav">
-					<li><a href="new.php">新增IP設定</a></li>
-					<li><a href="edit.php">修改IP設定</a></li>
+					<li><a href="new.php">新增 IP 設定</a></li>
+					<li><a href="edit.php">修改 IP 設定</a></li>
 <?php if (isSuperUser()): ?>
-					<li><a href="admin.php">新增/刪除管理員帳號</a></li>
+					<li><a href="admin.php">新增／刪除管理員帳號</a></li>
 <?php endif; ?>
 				</ul>
 <?php endif; ?>
