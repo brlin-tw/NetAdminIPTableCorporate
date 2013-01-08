@@ -10,7 +10,7 @@
     <meta name="author" content="國立海洋大學資訊工程學系 B97570146 楊力維、09957010 林博仁、Ming-Ting Wei" />
     <meta name="description" content="適用於網路管理者的IP位址表" />
     <meta name="generator" content="Vim" />
-    <meta name="keywords" content="IP位址表" />
+    <meta name="keywords" content="IP地址表" />
     <meta name="robots" content="index,follow" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <link href='styles/screen.css' rel='stylesheet' type='text/css' />
