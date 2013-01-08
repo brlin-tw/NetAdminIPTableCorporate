@@ -12,7 +12,7 @@
     exit;
   }
 
-  $title = "修改IP";
+  $title = "修改 IP 設定";
   $page = "edit";
 
   $link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD) or exit("無法與MySQL建立連線");
@@ -24,7 +24,7 @@
 <div class='container'>
 <div class='row'>
 <div class='span4'>
-<h1>修改IP</h1>
+<h1><?php echo $title;?></h1>
 </div>
 <div class='span12'>
 <form action='update.php' method='post'>

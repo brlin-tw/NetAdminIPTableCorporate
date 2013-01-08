@@ -1,12 +1,13 @@
 <?php
   include_once ("functions.php");
 
-  $title = "首頁";
+  $title = "留言板";
   $page = "home";
   include ("header.php");
 ?>
-	<h1 id="dheading" class='a'>留言版</h1>
 	<div class="container">
+		<h1 id="dheading" class='a'><?php echo $title ?></h1>
+		
     <table>
         <thead>
             <tr>
@@ -35,9 +36,8 @@
 			}
 		?>
 		</table>
-	</div>
-		<h1 id="heading">~~~開始留言~~~</h1>
-		<p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+
+		<h1 id="heading">開始留言吧</h1>
 		<div id='a'>
 			<form method="POST" action="do_messenger.php">
 				<table>
@@ -61,4 +61,5 @@
 				</table>
 			</form>
 		</div>
+	</div>		
 <?php include ("footer.php"); ?>
