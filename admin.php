@@ -9,7 +9,7 @@
     exit;
   }
 
-  $title = "新增/刪除帳號";
+  $title = "新增／刪除帳號";
   $page = "admin";
   include ("header.php");
 ?>
@@ -17,7 +17,7 @@
 <div class="container">
 <div class='row'>
 <div class='span4'>
-<h1>新增/刪除帳號</h1>
+<h1><?php echo $title ?></h1>
 <p>請先輸入您的管理者帳號以確認身份。</p>
 </div>
 <div class='span12'>
