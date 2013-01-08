@@ -1,3 +1,4 @@
+		<hr>
 		<div class='footer'>
 			<div class='container'>
 				<p class="pull-right">
