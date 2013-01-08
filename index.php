@@ -16,7 +16,7 @@
 	$link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD) or  die("無法與MySQL建立連線");
 	mysql_set_charset("utf8", $link);
 	mysql_select_db(MYSQL_DATABASE);
-	$result = mysql_query("fselect * from ips");
+	$result = mysql_query("select * from ips");
 	if($result == false){
 		echo "資料庫查詢失敗，請聯絡系統管理人員處理。".PHP_EOL;
 	}else{
