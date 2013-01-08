@@ -2,8 +2,7 @@
   print ("<?xml version='1.0' encoding='utf-8'?>".PHP_EOL);
   include_once ("functions.php");
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh_TW" lang="zh_TW">
   <head>
     <title><?php print($title);?> | 適用於網路管理者的IP位址表</title>
