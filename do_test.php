@@ -6,7 +6,7 @@
 <?php		
 	mb_internal_encoding ('utf8');
 	mysql_query ("SET CHARACTER SET 'utf8'");
-mysql_query ("SET NAMES 'utf8'");	
+	mysql_query ("SET NAMES 'utf8'");	
 	if(!($link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD)))
 	die("cannot link database");
 	if(!(mysql_select_db(MYSQL_DATABASE, $link)))
