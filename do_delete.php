@@ -9,7 +9,7 @@
 		mysql_set_charset("utf8", $link);
 		$result = mysql_query("select * from feedback");
 				if(!($result))
-				{print("can't execute");}
+				{print("無法執行資料庫查詢，請聯絡開發人員。".PHP_EOL);}
 				while($e=mysql_fetch_row($result)){
 					if($e[1] == $ID && $e[4] == $time){
 						$result = mysql_query("delete from feedback where reply_ID = '$ID' and reply_time = '$time'");
@@ -17,7 +17,7 @@
 				}
 	$result = mysql_query("delete from messager where ID = '$ID' and time = '$time'");
 	if($result == FALSE)
-		{print("can't execute");}
+		{print("操作失敗，請聯絡開發人員。<br />".PHP_EOL);}
 	else
 		{print("success<br />");}
 ?>
