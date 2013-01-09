@@ -42,7 +42,7 @@
 		<div id='a'>
 			<form method="POST" action="do_messenger.php">
 				<table>
-					<?php if($_SESSION['loginOK'] == true){?>
+					<?php if(isUser() == true){?>
 						<tr>
 							<td><input type = "hidden" id="nam" name='nam' value='<?PHP echo $_SESSION['userName']; ?>' /></td>
 						</tr>
