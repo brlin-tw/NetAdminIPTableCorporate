@@ -64,9 +64,8 @@ if(!isUser()){
     
     if(isset($query)) {
         $result = mysql_query($query);
-        if(mysql_affected_rows($result) == 0) {
-            setFlash("<strong>資料庫操作失敗</strong> — ".$result."筆資料被更動。", "error");
-        }
+    }else{
+			setFlash("<strong>資料庫操作失敗</strong> — ".$count."筆資料被更動。", "error");
     }
     mysql_close($link);
 }
