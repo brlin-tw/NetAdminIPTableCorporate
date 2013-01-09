@@ -16,6 +16,7 @@
 					<th>time</th>
 				</tr>
 			</thead>
+			<tbody>
 <?php
 	if(!($link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD)))
 	die("cannot link database");
@@ -35,6 +36,7 @@
 		}
 	}
 ?>
+			</tbody>
 		</table>
 	</div>
 		<h1 id="heading">~~~開始留言~~~</h1>
