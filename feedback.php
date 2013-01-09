@@ -6,8 +6,8 @@
   include ("header.php");
   extract($_GET);
 ?>
-<h1 id="dheading" class='a'><?php echo $title; ?></h1>
-	<div class="container">
+<div class="container">
+	<h1 id="dheading" class='a'><?php echo $title; ?></h1>
 		<table>
 			<thead>
 				<tr>
@@ -38,7 +38,6 @@
 ?>
 			</tbody>
 		</table>
-	</div>
 		<h1 id="heading">~~~開始留言~~~</h1>
 		<p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
 		<div id='a'>
@@ -73,4 +72,5 @@
 				</table>
 			</form>
 		</div>
+	</div>		
 <?php include ("footer.php"); ?>
