@@ -17,7 +17,7 @@ function isSuperUser($username = null) {
         }
     }
 		/* 在還未實作使用者等級之前先一律通過 */
-    return (true);
+    return true;
 }
 
 function user_account_check($username, $password, $haveLink = null){
