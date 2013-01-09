@@ -17,5 +17,9 @@
 		{print("can't execute");}
 	else
 		{print("success<br />");}
+		
 ?>	
-
+<a href='messenger.php'>回留言板</a>	
+<?php
+	include ("footer.php");
+?>
