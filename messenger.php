@@ -14,7 +14,7 @@
                 <th>姓名</th>
                 <th>留言</th>
                 <th>留言時間</th>
-                <th>相關操作</th>                
+                <th colspan='3'>相關操作</th>                
             </tr>
         </thead>
 		<?php
@@ -29,9 +29,10 @@
 			
 			while($row=mysql_fetch_row($result))
 			{
-				print("<tr><td><a href='feedback.php?ID=$row[0]&time=$row[2]'>$row[0]</a></td>");
+				print("<tr><td>$row[0]</td>");
 				print("<td>$row[1]</td>");
 				print("<td>$row[2]</td>");
+				print("<td><a href='feedback.php?ID=$row[0]&time=$row[2]'>回覆</a>");
 				print("<td><a href='fix.php?ID=$row[0]&message=$row[1]&time=$row[2]'>修改</a></td>");
 				print("<td><a href='do_delete.php?ID=$row[0]&message=$row[1]&time=$row[2]'>刪除</a></td></tr>");
 			}
