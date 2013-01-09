@@ -52,7 +52,7 @@
 						</tr>
 					<?php }else{?>
 					<tr>
-						<td>姓名：<input type = "text" id="nam" name='nam' size = "20" maxlength = "20" value = "x"/></td>
+						<td>姓名：<input type = "text" id="nam" name='nam' size = "20" maxlength = "20" value = ""/></td>
 					</tr>
 					<tr>
 						<td>留言：<input type = "text" id="ins" name='ins' size = "100" maxlength = "100" /></td>
