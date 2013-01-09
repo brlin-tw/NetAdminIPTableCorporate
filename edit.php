@@ -32,27 +32,30 @@
     <div class="clearfix">
       <label for="IP_last_4_digits">IP位址</label>
       <div class="input">
-      <select name='IP_last_4_digits'>
-        <?php
-        /* 產生使用中的 IP */
-        $link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD) or exit("無法與MySQL建立連線");
-        mysql_set_charset("utf8", $link);
-        mysql_select_db("MYSQL_DATABASE");
-        if($result = mysql_query("select name from users") == FALSE){
-          exit("</select><br />發生錯誤：mysql_query()查詢失敗。<br />");
-        }
-        
-        for ( $counter = 0; $row = mysql_fetch_row( $result ); $counter++)
-        {
-          $ipaddr = $row[0];
-          $used = $row[1];
-  	  $owner = $row[4];
-  	  if($used && ($owner==$_SESSION['userName'] || isSuperUser())) {
-  	  	print('<option value="'.htmlspecialchars($ipaddr).'">'.htmlspecialchars($ipaddr).'</option>');
-  	  }
-        }
-        ?>
-      </select>
+				<select name='IP_last_4_digits'>
+<?php
+/* 產生使用中的 IP */
+if($link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD) == false){
+	die("無法與資料庫伺服器連線");
+}
+mysql_set_charset("utf8", $link);
+mysql_select_db(MYSQL_DATABASE);
+$result = mysql_query("select * from ips");
+if($result == FALSE){
+	exit("</select><br />發生錯誤：mysql_query()查詢失敗。<br />");
+}
+
+for ( $counter = 0; $row = mysql_fetch_row( $result ); $counter++)
+{
+	$ipaddr = $row[0];
+	$used = $row[1];
+	$owner = $row[4];
+	if($used && ($owner==$_SESSION['userName'] || isSuperUser())) {
+		print('<option value="'.htmlspecialchars($ipaddr).'">'.htmlspecialchars($ipaddr).'</option>');
+	}
+}
+?>
+				</select>
       </div>
     </div>
     <div class="clearfix">
