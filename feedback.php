@@ -1,14 +1,14 @@
 <?php
   include_once ("functions.php");
 
-  $title = "首頁";
+  $title = "回覆留言";
   $page = "home";
   include ("header.php");
   extract($_GET);
 ?>
-<h1 id="dheading" class='a'>回覆的留言</h1>
+<h1 id="dheading" class='a'><?php echo $title; ?></h1>
 	<div class="container">
-    <table>
+		<table>
 			<thead>
 				<tr>
 					<th>ID</th>
@@ -16,25 +16,25 @@
 					<th>time</th>
 				</tr>
 			</thead>
-			<?php
-				if(!($link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD)))
-				die("cannot link database");
-				if(!(mysql_select_db(MYSQL_DATABASE)))
-				die("cannot open db");
-				mysql_set_charset("utf8", $link);
-				$result = mysql_query("select * from feedback");
-				if(!($result))
-				{print("can't execute");}
-				while($e=mysql_fetch_row($result)){
-					if($e[1] == $ID && $e[4] == $time){
-						print("<tr><td>$e[0]</td>");
-						print("<td>$e[2]</td>");
-						print("<td>$e[3]</td>");
-						print("<td><a href='fix_feedback.php?ID=$e[0]&message=$e[1]&time=$e[2]'>修改</a></td>");
-						print("<td><a href='do_delete_feedback.php?ID=$e[0]&re_ID=$e[1]&message=$e[2]&time=$e[3]&re_time=$e[4]'>刪除</a></td></tr>");
-					}
-				}
-			?>
+<?php
+	if(!($link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD)))
+	die("cannot link database");
+	if(!(mysql_select_db(MYSQL_DATABASE)))
+	die("cannot open db");
+	mysql_set_charset("utf8", $link);
+	$result = mysql_query("select * from feedback");
+	if(!($result))
+	{print("can't execute");}
+	while($e=mysql_fetch_row($result)){
+		if($e[1] == $ID && $e[4] == $time){
+			print("<tr><td>$e[0]</td>");
+			print("<td>$e[2]</td>");
+			print("<td>$e[3]</td>");
+			print("<td><a href='fix_feedback.php?ID=$e[0]&message=$e[1]&time=$e[2]'>修改</a></td>");
+			print("<td><a href='do_delete_feedback.php?ID=$e[0]&re_ID=$e[1]&message=$e[2]&time=$e[3]&re_time=$e[4]'>刪除</a></td></tr>");
+		}
+	}
+?>
 		</table>
 	</div>
 		<h1 id="heading">~~~開始留言~~~</h1>
@@ -42,7 +42,7 @@
 		<div id='a'>
 			<form method="POST" action="do_feedback.php">
 				<table>
-					<?php if($_SESSION['loginOK'] == true){?>
+<?php if($_SESSION['loginOK'] == true){ ?>
 						<tr>
 							<td><input type = "hidden" id="re_nam" name='re_nam' VALUE = '<?PHP print("$ID"); ?>' /></td>
 							<td><input type = "hidden" id="re_time" name='re_time' VALUE = '<?PHP print("$time"); ?>'/></td>
@@ -55,7 +55,7 @@
 							<td><input type = "submit" value='送出' /></td>
 						</tr>
 
-					<?php }else{?>
+<?php }else{ ?>
 						<tr>
 							<td><input type = "hidden" id="re_nam" name='re_nam' VALUE = '<?PHP print("$ID"); ?>' /></td>
 							<td><input type = "hidden" id="re_time" name='re_time' VALUE = '<?PHP print("$time"); ?>'/></td>
@@ -67,7 +67,7 @@
 							<td>留言:<input type = "text" id="ins" name='ins' size = "100" maxlength = "100" /></td>
 							<td><input type = "submit" value='送出' /></td>
 						</tr>
-					<?php }?>
+<?php } ?>
 				</table>
 			</form>
 		</div>
