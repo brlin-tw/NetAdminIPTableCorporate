@@ -27,13 +27,13 @@
 			if(!($result))
 			{print("can't execute");}
 			
-			while($e=mysql_fetch_row($result))
+			while($row=mysql_fetch_row($result))
 			{
-				print("<tr><td><a href='feedback.php?ID=$e[0]&time=$e[2]'>$e[0]</a></td>");
-				print("<td>$e[1]</td>");
-				print("<td>$e[2]</td>");
-				print("<td><a href='fix.php?ID=$e[0]&message=$e[1]&time=$e[2]'>修改</a></td>");
-				print("<td><a href='do_delete.php?ID=$e[0]&message=$e[1]&time=$e[2]'>刪除</a></td></tr>");
+				print("<tr><td><a href='feedback.php?ID=$row[0]&time=$row[2]'>$row[0]</a></td>");
+				print("<td>$row[1]</td>");
+				print("<td>$row[2]</td>");
+				print("<td><a href='fix.php?ID=$row[0]&message=$row[1]&time=$row[2]'>修改</a></td>");
+				print("<td><a href='do_delete.php?ID=$row[0]&message=$row[1]&time=$row[2]'>刪除</a></td></tr>");
 			}
 		?>
 		</table>
