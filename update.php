@@ -5,6 +5,7 @@ if(!isUser()){
     setFlash("請登入", "error");
 } else {
     $link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD) or die("無法與MySQL建立連線");
+		mysql_set_charset("utf8", $link);
     mysql_select_db(MYSQL_DATABASE); 
         
     switch ($_POST["submit"]){
@@ -63,8 +64,8 @@ if(!isUser()){
     
     if(isset($query)) {
         $result = mysql_query($query);
-        if(!$result || mysql_affected_rows($result) == 0) {
-            setFlash("<strong>資料庫操作失敗</strong> — 資料沒有更動。", "error");
+        if(mysql_affected_rows($result) == 0) {
+            setFlash("<strong>資料庫操作失敗</strong> — ".$result."筆資料被更動。", "error");
         }
     }
     mysql_close($link);
