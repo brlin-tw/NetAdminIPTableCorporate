@@ -10,7 +10,7 @@
 <div class="container">
 	<div id='ip_table'>
 		<div class="page-header">
-		<h1>140.121.80.0/24 <small>IP 配置狀態</small></h1>
+			<h1>140.121.80.0/24 <small>IP 配置狀態</small></h1>
 		</div>
 <?php
 	$link = mysql_connect(MYSQL_LOCATION, MYSQL_USERNAME, MYSQL_PASSWORD) or  die("無法與MySQL建立連線");
