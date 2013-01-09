@@ -11,9 +11,10 @@
     <table>
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Message</th>
-                <th>time</th>
+                <th>姓名</th>
+                <th>留言</th>
+                <th>留言時間</th>
+                <th>相關操作</th>                
             </tr>
         </thead>
 		<?php
