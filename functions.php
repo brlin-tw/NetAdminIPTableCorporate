@@ -30,14 +30,14 @@ function user_account_check($username, $password, $haveLink = null){
     }
 
     $username_escaped = mysql_real_escape_string($username);
-    $query = "SELECT passwd FROM users WHERE name=\"$username_escaped\"";
+    $query = "SELECT passwd FROM users WHERE name='$username_escaped'";
 
     mysql_select_db(MYSQL_DATABASE);
     $result = mysql_query($query);
 
     $ret = false;
     if (mysql_num_rows($result) == 1 && $password_hashed = mysql_result($result, 0)){
-			if (crypt($password, $password_hashed) == $password_hashed){
+			if (crypt($password, SALT) == $password_hashed){
 							$ret = $username;
 			}
     }
