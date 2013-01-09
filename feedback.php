@@ -28,7 +28,7 @@
 	{print("can't execute");}
 	while($e=mysql_fetch_row($result)){
 		if($e[1] == $ID && $e[4] == $time){
-			print("<tr><td>$e[0]</td>");
+			print("<tr><td>$e[1]</td>");
 			print("<td>$e[2]</td>");
 			print("<td>$e[3]</td>");
 			print("<td><a href='fix_feedback.php?ID=$e[0]&message=$e[1]&time=$e[2]'>修改</a></td>");
