@@ -40,7 +40,6 @@
 		</table>
 
 		<h1 id="heading">編寫回覆</h1>
-		<p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
 		<div id='a'>
 			<form method="POST" action="do_feedback.php">
 				<table>
@@ -59,8 +58,8 @@
 
 <?php }else{ ?>
 						<tr>
-							<td><input type = "hidden" id="re_nam" name='re_nam' VALUE = '<?PHP print("$ID"); ?>' /></td>
-							<td><input type = "hidden" id="re_time" name='re_time' VALUE = '<?PHP print("$time"); ?>'/></td>
+							<td><input type = "hidden" id="re_nam" name='re_nam' VALUE='<?PHP print("$ID"); ?>' /></td>
+							<td><input type = "hidden" id="re_time" name='re_time' VALUE='<?PHP print("$time"); ?>'/></td>
 						</tr>
 						<tr>
 							<td>名字:<input type = "text" id="nam" name='nam' size = "20" maxlength = "20" /></td>

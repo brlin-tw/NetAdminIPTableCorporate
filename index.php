@@ -42,6 +42,7 @@
 		$ports = htmlspecialchars($row[3]);//ports
 		$owner = htmlspecialchars($row[4]);//owner
 		$place = htmlspecialchars($row[5]);//place
+		$display_name = htmlspecialchars($row[6]);
 		
 		if($used == 0){
 			continue;

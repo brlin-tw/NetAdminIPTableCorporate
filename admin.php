@@ -46,6 +46,12 @@
       </div>
     </div>
     <div class="clearfix">
+      <label for="new_account_display_name">帳號顯示名稱</label>
+      <div class="input">
+        <input type='text' name='new_account_display_name' size='30' maxlength='20' />
+      </div>
+    </div>    
+    <div class="clearfix">
       <label for="new_account_password">密碼</label>
       <div class="input">
         <input type='password' name='new_account_password' size='30' maxlength='30' />

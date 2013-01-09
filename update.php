@@ -29,9 +29,10 @@ if(!isUser()){
             $password_again = mysql_real_escape_string($_POST["new_account_password_check"]);
             $email = mysql_real_escape_string($_POST["new_account_mail"]);
             $phone = mysql_real_escape_string($_POST["new_account_phone"]);
+            $display_name = mysql_real_escape_string($_POST["new_account_display_name"]);
             if($_POST["new_account_password"] == $_POST["new_account_password"]) {
 								$password = crypt($_POST["new_account_password"], SALT);
-                $query = "INSERT INTO users VALUES (\"$username\",\"$password\",\"$email\",\"$phone\")";
+                $query = "INSERT INTO users VALUES (\"$username\",\"$password\",\"$email\",\"$phone\", '$display_name')";
                 setFlash(htmlspecialchars($username)." 已經新增", "success");
             } else {
                 setFlash ("兩個密碼不合", "error");
